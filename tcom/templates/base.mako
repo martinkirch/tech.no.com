@@ -18,6 +18,9 @@
             width: 100px;
         }
         </style>
+        <script type="text/javascript"
+                src="${request.static_url('tcom:static/tcom.js')}"
+        ></script>
     </head>
     <body>
 
@@ -31,8 +34,15 @@
     </nav>
 
       <div class="container">
+        <div id="michelcast"></div>
         ${self.body()}
       </div>
 
+      <script type="text/javascript"
+              src="${request.static_url('tcom:static/jquery-1.8.2.min.js')}"
+       ></script>
+       <script type="text/javascript"
+               src="http://api.mixcloud.com/michelplatiniste/liqueur-forte-ou-cafe-noir/embed-json/?callback=embedit">
+        </script>
     </body>
 </html>
