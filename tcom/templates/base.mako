@@ -13,7 +13,7 @@
         nav {
             position: fixed;
             top: 0;
-            left: 0;
+            left: 10;
             bottom: 0;
             width: 150px;
         }
@@ -27,11 +27,11 @@
     <nav>
         <ul class="nav nav-list">
             <li class="nav-header">tech.no.com</li>
-            <li><i class="icon-list"></i> Episodes</li>
-            <li><i class="icon-download-alt"></i> Podcast</li>
-            <li><i class="icon-comment"></i> Twitter</li>
-            <li><i class="icon-music"></i> Mixcloud</li>
-            <li><i class="icon-envelope"></i> Email</li>
+            <li class="active"><a href="#"><i class="icon-list"></i> Episodes</a></li>
+            <li><a href="#"><i class="icon-download-alt"></i> Podcast</a></li>
+            <li><a href="http://twitter.com/michelplatiniste"><i class="icon-comment"></i> Twitter</a></li>
+            <li><a href="http://mixcloud.com/michelplatiniste"><i class="icon-music"></i> Mixcloud</a></li>
+            <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
         </ul>
     </nav>
 
