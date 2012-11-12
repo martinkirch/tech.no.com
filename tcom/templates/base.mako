@@ -12,9 +12,9 @@
               charset="utf-8">
         nav {
             position: fixed;
-            top: 0;
+            top: 10;
             left: 10;
-            bottom: 0;
+            bottom: 10;
             width: 150px;
         }
 
@@ -30,7 +30,7 @@
 
     <nav>
 
-        <div id="avatar"></div>
+        <div id="avatar" class="pagination-centered"></div>
 
         <ul class="nav nav-list">
             <li class="nav-header">tech.no.com</li>
