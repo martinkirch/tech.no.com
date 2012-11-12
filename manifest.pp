@@ -8,7 +8,6 @@ vcsrepo {'/usr/local/src/tcom':
   ensure   => present,
   provider => git,
   source   => 'ssh://gitolite@localhost:site.git',
-  user     => 'etienne',
 }
 
 python::pip::install{'tcom':
