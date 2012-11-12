@@ -43,7 +43,7 @@
         <ul class="nav nav-list social">
             <li><a href="http://twitter.com/mplatiniste"><i class="icon-comment"></i> Twitter</a></li>
             <li><a href="http://mixcloud.com/michelplatiniste"><i class="icon-music"></i> Mixcloud</a></li>
-            <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
+            <li><a href="mailto:michel@tech.no.com"><i class="icon-envelope"></i> Email</a></li>
         </ul>
 
     </nav>
