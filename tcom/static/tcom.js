@@ -30,3 +30,24 @@ function start() {
   $.getScript("http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel");
   $.getScript("http://api.mixcloud.com/michelplatiniste/?callback=showpic");
 }
+
+function disp_episode(d) {
+  console.log(d);
+
+  name = d.name;
+
+  html = "";
+  html += '<h2>' + name + '</h2>';
+  html += '<div id="michelplayer"></div>';
+
+  $("#michelcast").html(html);
+
+  url = "http://api.mixcloud.com/michelplatiniste/"
+      + d.slug
+      + "/embed-json/?callback=setupplayer&width=500";
+  $.getScript(url);
+}
+
+function setupplayer(d) {
+  $("#michelplayer").html(d.html);
+}

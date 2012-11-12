@@ -25,6 +25,9 @@
         <script type="text/javascript"
                 src="${request.static_url('tcom:static/tcom.js')}"
         ></script>
+        <script type="text/javascript"
+                src="${request.static_url('tcom:static/jquery-1.8.2.min.js')}"
+         ></script>
     </head>
     <body>
 
@@ -49,9 +52,6 @@
         ${self.body()}
       </div>
 
-      <script type="text/javascript"
-              src="${request.static_url('tcom:static/jquery-1.8.2.min.js')}"
-       ></script>
       <script type="text/javascript">
         start();
       </script>

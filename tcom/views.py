@@ -27,3 +27,8 @@ try it again.
 @view_config(route_name='home', renderer='home.mako')
 def view_home(request):
     return {}
+
+@view_config(route_name='episode', renderer='episode.mako')
+def view_episode(request):
+    slug = request.matchdict['slug']
+    return dict(slug=slug)
