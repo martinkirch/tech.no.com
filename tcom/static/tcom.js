@@ -4,7 +4,6 @@ function dispmichel(d) {
     html += '<ul class="thumbnails">'
     for (i in eps) {
         slug = eps[i].slug;
-        console.log(eps[i]);
         url = "/episode/" + slug;
         name = eps[i].name;
 
