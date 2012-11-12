@@ -26,7 +26,8 @@
 
     <nav>
         <ul class="nav nav-list">
-            <li class="nav-header">Episodes</li>
+            <li class="nav-header">tech.no.com</li>
+            <li>Episodes</li>
             <li>Podcast</li>
             <li>Twitter</li>
             <li>Mixcloud</li>
@@ -42,7 +43,7 @@
               src="${request.static_url('tcom:static/jquery-1.8.2.min.js')}"
        ></script>
        <script type="text/javascript"
-               src="http://api.mixcloud.com/michelplatiniste/liqueur-forte-ou-cafe-noir/embed-json/?callback=embedit">
-        </script>
+               src="http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel&limit=5"
+        ></script>
     </body>
 </html>

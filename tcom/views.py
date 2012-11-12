@@ -10,7 +10,7 @@ from .models import (
 
 @view_config(route_name='home', renderer='page.mako')
 def my_view(request):
-    return {'content':'LOL'}
+    return {'content':''}
 
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
