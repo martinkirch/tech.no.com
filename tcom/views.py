@@ -8,10 +8,6 @@ from .models import (
     MyModel,
     )
 
-@view_config(route_name='home', renderer='page.mako')
-def my_view(request):
-    return {'content':''}
-
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
 might be caused by one of the following things:
@@ -28,3 +24,6 @@ After you fix the problem, please restart the Pyramid application to
 try it again.
 """
 
+@view_config(route_name='home', renderer='home.mako')
+def view_home(request):
+    return {}
