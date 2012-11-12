@@ -12,3 +12,13 @@ function dispmichel(d) {
         $.getScript(url);
     }
 }
+
+function showpic(d) {
+  url = d.pictures.medium;
+  $("#avatar").html("<img src='" + url + "' />");
+}
+
+function start() {
+  $.getScript("http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel&limit=3");
+  $.getScript("http://api.mixcloud.com/michelplatiniste/?callback=showpic");
+}

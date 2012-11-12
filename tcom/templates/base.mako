@@ -17,6 +17,10 @@
             bottom: 0;
             width: 150px;
         }
+
+        nav .social {
+            margin-top: 30px;
+        }
         </style>
         <script type="text/javascript"
                 src="${request.static_url('tcom:static/tcom.js')}"
@@ -25,14 +29,20 @@
     <body>
 
     <nav>
+
+        <div id="avatar"></div>
+
         <ul class="nav nav-list">
             <li class="nav-header">tech.no.com</li>
             <li class="active"><a href="#"><i class="icon-list"></i> Episodes</a></li>
             <li><a href="#"><i class="icon-download-alt"></i> Podcast</a></li>
+        </ul>
+        <ul class="nav nav-list social">
             <li><a href="http://twitter.com/michelplatiniste"><i class="icon-comment"></i> Twitter</a></li>
             <li><a href="http://mixcloud.com/michelplatiniste"><i class="icon-music"></i> Mixcloud</a></li>
             <li><a href="#"><i class="icon-envelope"></i> Email</a></li>
         </ul>
+
     </nav>
 
       <div class="container">
@@ -43,8 +53,8 @@
       <script type="text/javascript"
               src="${request.static_url('tcom:static/jquery-1.8.2.min.js')}"
        ></script>
-       <script type="text/javascript"
-               src="http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel&limit=3"
-        ></script>
+      <script type="text/javascript">
+        start();
+      </script>
     </body>
 </html>
