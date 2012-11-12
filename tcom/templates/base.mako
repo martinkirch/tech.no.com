@@ -46,7 +46,7 @@
     </nav>
 
       <div class="container">
-        <div id="michelcast"></div>
+        <div id="michelcasts"></div>
         ${self.body()}
       </div>
 
