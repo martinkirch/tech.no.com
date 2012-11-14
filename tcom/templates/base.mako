@@ -33,11 +33,11 @@
 
     <nav>
 
-        <div id="avatar" class="pagination-centered"></div>
+        <a href="/"><div id="avatar" class="pagination-centered"></div></a>
 
         <ul class="nav nav-list">
             <li class="nav-header">tech.no.com</li>
-            <li class="active"><a href="#"><i class="icon-list"></i> Episodes</a></li>
+            <li class="active"><a href="/"><i class="icon-list"></i> Episodes</a></li>
             <li><a href="#"><i class="icon-download-alt"></i> Podcast</a></li>
         </ul>
         <ul class="nav nav-list social">
