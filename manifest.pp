@@ -5,7 +5,7 @@ Exec {
 include webapp::python
 
 vcsrepo {'/usr/local/src/tcom':
-  ensure   => present,
+  ensure   => latest,
   provider => git,
   source   => 'gitolite@localhost:site.git',
 }
