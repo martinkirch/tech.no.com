@@ -9,6 +9,7 @@ vcsrepo {'/usr/local/src/tcom':
   provider => git,
   source   => 'gitolite@localhost:site.git',
   revision => 'master',
+  notify   => Webapp::Python::Instance['tcom'],
 }
 
 python::pip::install{'tcom':
