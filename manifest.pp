@@ -8,6 +8,7 @@ vcsrepo {'/usr/local/src/tcom':
   ensure   => latest,
   provider => git,
   source   => 'gitolite@localhost:site.git',
+  revision => 'master',
 }
 
 python::pip::install{'tcom':
