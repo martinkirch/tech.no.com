@@ -1,11 +1,11 @@
 function dispmichel(d) {
-    eps = d.data;
-    html = "";
+    var eps = d.data;
+    var html = "";
     html += '<ul class="thumbnails">'
     for (i in eps) {
-        slug = eps[i].slug;
-        url = "/episode/" + slug;
-        name = eps[i].name;
+        var slug = eps[i].slug;
+        var url = "/episode/" + slug;
+        var name = eps[i].name;
 
         html += '  <li class="span4">';
         html += '   <a href="' + url + '">'
@@ -22,7 +22,7 @@ function dispmichel(d) {
 }
 
 function showpic(d) {
-  url = d.pictures.medium;
+  var url = d.pictures.medium;
   $("#avatar").html("<img src='" + url + "' />");
 }
 
@@ -32,19 +32,17 @@ function start() {
 }
 
 function disp_episode(d) {
-  console.log(d);
+  var name = d.name;
 
-  name = d.name;
-
-  html = "";
+  var html = "";
   html += '<h2>' + name + '</h2>';
   html += '<div id="michelplayer"></div>';
 
   $("#michelcast").html(html);
 
-  url = "http://api.mixcloud.com/michelplatiniste/"
-      + d.slug
-      + "/embed-json/?callback=setupplayer&width=500";
+  var url = "http://api.mixcloud.com/michelplatiniste/"
+          + d.slug
+          + "/embed-json/?callback=setupplayer&width=500";
   $.getScript(url);
 }
 
