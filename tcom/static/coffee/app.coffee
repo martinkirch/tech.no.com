@@ -1,17 +1,17 @@
-updateHome = (d) ->
+window.updateHome = (d) ->
     eps = d.data
     html = ""
     html += '<ul class="thumbnails">'
     
-    for i in eps
-        slug = eps[i].slug
+    for ep in eps
+        slug = ep.slug
         url = "#/episode/" + slug
-        name = eps[i].name
+        name = ep.name
 
         html += '  <li class="span4">'
         html += '   <a href="' + url + '">'
         html += '    <div class="thumbnail">'
-        html += '      <img src="'  + eps[i].pictures.large + '" />'
+        html += '      <img src="'  + ep.pictures.large + '" />'
         html += '      <h3>' + name + '</h3>'
         html += '    </div>'
         html += '   </a>'
@@ -19,7 +19,7 @@ updateHome = (d) ->
     html += '</ul>'
     $("#appbody").append(html)
 
-dispEpisode = (d) ->
+window.dispEpisode = (d) ->
   name = d.name
 
   html = ""
@@ -33,10 +33,10 @@ dispEpisode = (d) ->
           "/embed-json/?callback=setupPlayer&width=500"
   $.getScript(url)
 
-setupPlayer = (d) ->
+window.setupPlayer = (d) ->
   $("#michelplayer").html(d.html)
 
-updatePic = (d) ->
+window.updatePic = (d) ->
   url = d.pictures.medium
   $("#avatar").html("<img src='" + url + "' />")
 
