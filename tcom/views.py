@@ -32,3 +32,7 @@ def view_home(request):
 def view_episode(request):
     slug = request.matchdict['slug']
     return dict(slug=slug)
+
+@view_config(route_name='app', renderer='app.mako')
+def view_home(request):
+    return {}
