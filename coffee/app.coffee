@@ -1,33 +1,22 @@
 window.updateHome = (d) ->
-  eps = d.data
-  html = ""
-  html += '<ul class="thumbnails">'
+  ul = $('<ul>').addClass('thumbnails')
 
-  for ep in eps
-    slug = ep.slug
-    url = "#/episode/" + slug
-    name = ep.name
+  for ep in d.data
+    li = _.template($('#episode_thumb_template').html(),
+      link: "#/episode/" + ep.slug
+      pic: ep.pictures.large
+      name: ep.name
+    )
+    ul.append(li)
 
-    html += '  <li class="span4">'
-    html += '   <a href="' + url + '">'
-    html += '    <div class="thumbnail">'
-    html += '      <img src="'  + ep.pictures.large + '" />'
-    html += '      <h3>' + name + '</h3>'
-    html += '    </div>'
-    html += '   </a>'
-    html += '  </li>'
-  html += '</ul>'
-  $("#appbody").append(html)
+  $("#appbody").append(ul)
 
 window.dispEpisode = (d) ->
-  name = d.name
-
-  html = ""
-  html += '<h2>' + name + '</h2>'
-  html += '<div id="michelplayer"></div>'
-
+  html = _.template($('#episode_template').html(),
+    name: d.name
+    slug: d.slug
+  )
   $("#appbody").html(html)
-
   url = "http://api.mixcloud.com/michelplatiniste/" +
           d.slug +
           "/embed-json/?callback=setupPlayer&width=500"
