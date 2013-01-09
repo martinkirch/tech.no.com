@@ -9,7 +9,7 @@ window.updateHome = (d) ->
     )
     ul.append(li)
 
-  $("#appbody").append(ul)
+  $("#appbody").html(ul)
 
 window.dispEpisode = (d) ->
   html = _.template($('#episode_template').html(),
