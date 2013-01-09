@@ -52,5 +52,7 @@
     <script type="text/javascript" src='/static/js/json2.js'></script>
     <script type="text/javascript" src='/static/js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='/static/js/backbone-min.js'></script>
+    <script type="text/javascript" src='/static/js/coffee-script.js'></script>
+    <script type="text/coffeescript" src='/static/coffee/app.coffee'></script>
     <script type="text/javascript" src='/static/js/app.js'></script>
 </html>
