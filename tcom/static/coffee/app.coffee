@@ -37,8 +37,8 @@ window.setupPlayer = (d) ->
   $("#michelplayer").html(d.html)
 
 window.updatePic = (d) ->
-  url = d.pictures.medium
-  $("#avatar").html("<img src='" + url + "' />")
+  img = $('<img>', src: d.pictures.medium)
+  $("#avatar").html(img)
 
 HomeView = Backbone.View.extend(
   initialize: () ->
