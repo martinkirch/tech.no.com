@@ -1,0 +1,29 @@
+---
+
+- hosts: webservers
+  user: admin
+  sudo: True
+
+  tasks:
+    - name: install common packages needed for python application development
+      action: apt pkg={{item}} state=installed
+      with_items:
+        - git-core
+        - nginx
+        - python-virtualenv
+        - supervisor
+        - uwsgi
+        - uwsgi-plugin-python
+
+    - name: start supervisord service and have it run during system startup
+      action: service name=supervisor state=started enabled=yes
+
+    - name: start nginx service and have it run during system startup
+      action: service name=nginx state=started enabled=yes
+
+    - name: create webapps directory
+      action: file dest=/srv/webapps state=directory
+
+  handlers:
+    - name: restart app
+      action: supervisorctl name={{app_name}} state=restarted
