@@ -11,6 +11,7 @@
     webapps_dir: /srv/webapps
     wsgi_callable: app
     wsgi_file: app.py
+    server_name: next.tech.no.com
 
   tasks:
     - name: ensure log directory
@@ -21,6 +22,9 @@
 
     - name: install dependencies into virtualenv
       action: pip requirements={{webapps_dir}}/{{app_name}}/src/requirements.txt virtualenv={{webapps_dir}}/{{app_name}}/venv state=present
+
+    - name: install site package
+      action: pip name=. chdir={{webapps_dir}}/{{app_name}}/src virtualenv={{webapps_dir}}/{{app_name}}/venv state=present
 
     - name: create supervisor program config
       action: template src=templates/supervisor.conf dest=/etc/supervisor/conf.d/{{app_name}}.conf
