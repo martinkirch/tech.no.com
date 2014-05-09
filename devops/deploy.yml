@@ -11,7 +11,7 @@
     webapps_dir: /srv/webapps
     wsgi_callable: app
     wsgi_file: app.py
-    server_name: next.tech.no.com
+    server_name: tech.no.com
 
   tasks:
     - name: ensure log directory
