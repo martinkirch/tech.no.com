@@ -1,4 +1,5 @@
 pastescript
+pip
 pyramid
 PyRSS2Gen
 waitress
