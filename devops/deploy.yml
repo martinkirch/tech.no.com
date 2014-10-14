@@ -19,6 +19,8 @@
 
     - name: deploy code from repository
       action: git repo={{repo_url}} dest={{webapps_dir}}/{{app_name}}/src remote={{repo_remote}} version={{repo_version}} key_file=/home/admin/.ssh/id_rsa
+      notify:
+        - restart app
 
     - name: install dependencies into virtualenv
       action: pip requirements={{webapps_dir}}/{{app_name}}/src/requirements.txt virtualenv={{webapps_dir}}/{{app_name}}/venv state=present
