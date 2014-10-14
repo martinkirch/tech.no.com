@@ -1,5 +1,6 @@
+paste
+pastedeploy
 pastescript
-pip
 pyramid
 PyRSS2Gen
 waitress
