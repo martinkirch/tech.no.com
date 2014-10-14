@@ -41,3 +41,4 @@ class TestMyView(unittest.TestCase):
         self.assertGreater(len(feed.entries), 0)
         entry = feed.entries[0]
         self.assertNotEqual(entry.summary, '')
+        self.assertNotEqual(entry.enclosures, [])

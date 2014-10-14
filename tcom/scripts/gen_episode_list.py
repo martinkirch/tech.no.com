@@ -9,7 +9,10 @@ def main():
 
 
 def fmt(cc):
-    return "    Episode({}, {}),".format(quote(cc.name), quote(cc.description()))
+    return "    Episode({}, {}, {}),".format(quote(cc.name),
+                                             quote(cc.key),
+                                             quote(cc.description()),
+                                             )
 
 
 def quote(s):
