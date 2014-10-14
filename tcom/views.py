@@ -10,6 +10,8 @@ from .models import (
 
 import PyRSS2Gen
 
+import tcom.episodes
+
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
 might be caused by one of the following things:
@@ -40,6 +42,7 @@ def view_rss(request):
     rss = PyRSS2Gen.RSS2(title='Michel Platiniste podcast',
                          link='http://tech.no.com',
                          description='The Michel Platiniste podcast',
+                         items=tcom.episodes.entries(),
                          )
     resp = Response(rss.to_xml(), content_type='application/rss+xml')
     return resp
