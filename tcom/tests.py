@@ -1,4 +1,3 @@
-import feedparser
 import unittest
 import transaction
 
@@ -32,6 +31,7 @@ class TestMyView(unittest.TestCase):
         self.assertEqual(info, {})
 
     def test_rss(self):
+        import feedparser
         from .views import view_rss
         request = testing.DummyRequest()
         resp = view_rss(request)
