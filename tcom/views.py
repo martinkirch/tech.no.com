@@ -44,5 +44,6 @@ def view_rss(request):
                          description='The Michel Platiniste podcast',
                          items=tcom.episodes.entries(),
                          )
-    resp = Response(rss.to_xml(), content_type='application/rss+xml')
+    resp = Response(rss.to_xml(encoding='utf-8'),
+                    content_type='application/rss+xml')
     return resp

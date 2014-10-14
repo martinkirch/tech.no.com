@@ -37,6 +37,7 @@ class TestMyView(unittest.TestCase):
         resp = view_rss(request)
         self.assertEqual(resp.content_type, 'application/rss+xml')
         feed = feedparser.parse(resp.body)
+        self.assertEqual(feed.encoding, 'utf-8')
         self.assertEqual(feed.bozo, 0)
         self.assertGreater(len(feed.entries), 0)
         entry = feed.entries[0]
