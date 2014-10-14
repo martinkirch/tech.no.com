@@ -42,3 +42,4 @@ class TestMyView(unittest.TestCase):
         entry = feed.entries[0]
         self.assertNotEqual(entry.summary, '')
         self.assertNotEqual(entry.enclosures, [])
+        self.assertIn('published', entry)
