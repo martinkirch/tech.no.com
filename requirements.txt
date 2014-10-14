@@ -3,4 +3,5 @@ pastedeploy
 pastescript
 pyramid
 PyRSS2Gen
+python-dateutil
 waitress
