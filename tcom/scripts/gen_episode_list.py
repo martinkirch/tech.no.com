@@ -1,6 +1,5 @@
-import mixcloud
-
 def main():
+    import mixcloud
     m = mixcloud.Mixcloud()
     michel = m.user('michelplatiniste')
     cloudcasts = michel.cloudcasts()
