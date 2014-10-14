@@ -39,3 +39,5 @@ class TestMyView(unittest.TestCase):
         feed = feedparser.parse(resp.body)
         self.assertEqual(feed.bozo, 0)
         self.assertGreater(len(feed.entries), 0)
+        entry = feed.entries[0]
+        self.assertNotEqual(entry.summary, '')
