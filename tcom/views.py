@@ -8,6 +8,8 @@ from .models import (
     MyModel,
     )
 
+import PyRSS2Gen
+
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
 might be caused by one of the following things:
@@ -32,3 +34,12 @@ def view_home(request):
 def view_episode(request):
     slug = request.matchdict['slug']
     return dict(slug=slug)
+
+@view_config(route_name='rssfeed')
+def view_rss(request):
+    rss = PyRSS2Gen.RSS2(title='Michel Platiniste podcast',
+                         link='http://tech.no.com',
+                         description='The Michel Platiniste podcast',
+                         )
+    resp = Response(rss.to_xml(), content_type='application/rss+xml')
+    return resp
