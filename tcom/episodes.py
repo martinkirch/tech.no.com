@@ -8,6 +8,16 @@ import PyRSS2Gen
 from dateutil.tz import tzutc
 
 
+# Extracted from:
+# https://github.com/DirkR/capturadio/blob/master/capturadio/rss.py
+class ItunesRSSItem(PyRSS2Gen.RSSItem):
+
+    def publish_extensions(self, handler):
+        if self.image_url is not None:
+            handler.startElement('itunes:image', {'href': self.image_url})
+            handler.endElement('itunes:image')
+
+
 class Episode:
     def __init__(self, title, slug, description, pubDate):
         self.title = title
@@ -16,12 +26,13 @@ class Episode:
         self.pubDate = pubDate
 
     def to_rss_item(self):
-        item = PyRSS2Gen.RSSItem(
+        item = ItunesRSSItem(
             title=self.title,
             description=self.description,
             enclosure=make_enclosure(self.slug),
             pubDate = self.pubDate,
             )
+        item.image_url = PICS[self.slug]
         return item
 
 
@@ -248,3 +259,41 @@ LENGTH = {
     'warming-up-grehack-2012':                 233538950,
     '2999-seconds': 0,
      }
+
+
+PICS = {
+    u'the-pomodoro-sessions-episode-13': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/3bafe648-175a-46cf-b955-b63191df2060.png',
+    u'the-pomodoro-sessions-episode-12': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/db974d0d-7853-4ad4-be5e-018293eaa467.png',
+    u'just-drift': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/34fd7667-1344-462e-8df3-2b33124dd839.jpg',
+    u'pas-modoro-classique': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg',
+    u'the-pomodoro-sessions-episode-11': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/336ad8a5-b4ff-4371-815c-ea3e4f81538b.png',
+    u'the-pomodoro-sessions-episode-10': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/19b92597-f3b4-46df-a4cb-06281ee8c644.png',
+    u'voyage-voyages-le-retour': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/8d5f7979-7b29-467b-b289-c55462ca9729.jpg',
+    u'sample-funky': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg',
+    u'the-pomodoro-sessions-episode-9': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/c9526b69-7091-4b15-af45-3b4347b93689.png',
+    u'voyage-voyages': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/30754347-93c2-47b0-b99a-610bc1a8f055.jpg',
+    u'the-pomodoro-sessions-episode-8': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/68461c3d-5666-460e-b8d8-af3225573d1a.png',
+    u'the-pomodoro-sessions-episode-7': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/22b2aa06-7056-4bd7-85f5-31895982f1bd.png',
+    u'the-pomodoro-sessions-episode-6': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/2afc6d84-11a1-43b5-a7df-930a1823acf4.jpg',
+    u'the-pomodoro-sessions-episode-5': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/a2679fad-11ac-47a0-8aba-14dc4b3504d6.png',
+    u'the-pomodoro-sessions-episode-4': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/c03dfa13-845d-4b92-8a09-4d3b95107ee1.png',
+    u'the-pomodoro-sessions-episode-3': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/b2cefd0b-4fdf-4ef5-bef2-2965c9c5e642.png',
+    u'the-pomodoro-sessions-episode-2': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/58ebd413-907b-4725-a479-2a38d6ac5fc8.png',
+    u'the-pomodoro-sessions-episode-1': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/ad19fa7d-8404-4eda-9c52-03ebbb7d92cd.png',
+    u'pile-ou-face': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/ee78622a-1557-4ef7-b392-4b35f87c9b75.jpg',
+    u'minimal-sunday': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg',
+    u'lunettes-carrees-chemises-a-carreaux': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/71eb50f4-79af-4b5b-b086-09f7ee8dffbc.jpg',
+    u'tokamix-2-la-guerre-contre-les-machines': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/b70ef5d4-e5da-4c9a-bb19-35d7758375c8.jpg',
+    u'warming-up-grehack-2012': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/ccd2b410-2b66-43c1-8c62-735acb70dc5a.png',
+    u'liqueur-forte-ou-cafe-noir': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/360d835f-2ed2-4ba7-a1c3-54bd9e5288d8.png',
+    u'once-you-go-in-you-dont-come-out': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/6a548efa-f5d4-444f-adc2-458f583e8f35.jpg',
+    u'tout-le-monde-samuse-a-115bpm': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/c26bc6e5-2b46-4966-8ade-08474bc62d6b.jpg',
+    u'downpitchd-summer': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/cafd601a-0ce0-48e6-b57e-1e3b4bc766ee.jpg',
+    u'ping-pong-minitex': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/f55c12e9-4e3f-4c8e-8938-39cd52026e7f.jpg',
+    u'groovybaby': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/406f2050-257f-4987-b275-3d4279e3a8d3.jpg',
+    u'smooth': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/d07ee824-f404-4c54-a721-5bd5027f41c3.png',
+    u'ode-aux-nuits': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/92b6b957-b2a8-4009-b2ae-341bfe267f23.jpg',
+    u'techno-062009': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/4598b3d0-1718-45f2-b68c-2e2b3354b188.jpg',
+    u'promo-022010': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/1283a5f8-ce8b-4c0a-8c45-764143d7749d.jpg',
+    u'2999-seconds': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/347746e5-c524-4279-9b42-5fd9be23ce34.jpg',
+}

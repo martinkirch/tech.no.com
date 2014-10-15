@@ -38,13 +38,25 @@ def view_episode(request):
     slug = request.matchdict['slug']
     return dict(slug=slug)
 
+
+# Extracted from:
+# https://github.com/DirkR/capturadio/blob/master/capturadio/rss.py
+class ItunesRSS(PyRSS2Gen.RSS2):
+    """This class adds the "itunes" extension (<itunes:image>, etc.)
+    to the rss feed."""
+
+    rss_attrs = {
+        "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
+        "version": "2.0",
+    }
+
 @view_config(route_name='rssfeed')
 def view_rss(request):
-    rss = PyRSS2Gen.RSS2(title='Michel Platiniste podcast',
-                         link='http://tech.no.com',
-                         description='The Michel Platiniste podcast',
-                         items=tcom.episodes.entries(),
-                         )
+    rss = ItunesRSS(title='Michel Platiniste podcast',
+                    link='http://tech.no.com',
+                    description='The Michel Platiniste podcast',
+                    items=tcom.episodes.entries(),
+                    )
     resp = Response(rss.to_xml(encoding='utf-8'),
                     content_type='application/rss+xml')
     return resp
