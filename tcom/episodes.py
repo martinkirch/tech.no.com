@@ -26,11 +26,14 @@ class Episode:
         self.pubDate = pubDate
 
     def to_rss_item(self):
+        url = 'http://tech.no.com/episode/{}'.format(self.slug)
         item = ItunesRSSItem(
             title=self.title,
             description=self.description,
             enclosure=make_enclosure(self.slug),
             pubDate = self.pubDate,
+            link = url,
+            guid = PyRSS2Gen.Guid(url),
             )
         item.image_url = PICS[self.slug]
         return item

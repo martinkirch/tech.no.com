@@ -47,6 +47,7 @@ class TestMyView(unittest.TestCase):
         self.assertNotEqual(entry.enclosures, [])
         self.assertIn('published', entry)
         self.assertIn('media_thumbnail', entry)
+        self.assertIn('guid', entry)
 
     def test_download(self):
         from .views import view_download
