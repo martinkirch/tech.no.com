@@ -52,6 +52,6 @@ def view_rss(request):
 @view_config(route_name='download')
 def view_download(request):
     slug = request.matchdict['slug']
-    fmt = 'https://s3.amazonaws.com/files.tech.no.com/podcasts/{}.mp3'
+    fmt = 'https://s3-eu-west-1.amazonaws.com/files.tech.no.com/podcasts/{}.mp3'
     url = fmt.format(slug)
     return HTTPFound(location=url)
