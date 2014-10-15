@@ -11,7 +11,8 @@ class TestLive(unittest.TestCase):
         self.assertEqual(f.bozo, 0)
         for e in f.entries:
             self.assertEqual(len(e.enclosures), 1)
-            link = e.enclosures[0].href
+            enclosure = e.enclosures[0]
+            link = enclosure.href
             if link == 'http://tech.no.com/episode/2999-seconds/download':
                 # Damn I lost it
                 continue
@@ -20,6 +21,10 @@ class TestLive(unittest.TestCase):
             redir_link = r.headers['location']
             r = requests.head(redir_link)
             self.assertEqual(r.status_code, 200, 'Status code for: ' + link)
+            resp_bytes = r.headers['content-length']
+            exp_bytes = enclosure.length
+            msg = 'For {}: {} != {}'.format(link, resp_bytes, exp_bytes)
+            self.assertEqual(resp_bytes, exp_bytes, msg)
 
 
 def main():
