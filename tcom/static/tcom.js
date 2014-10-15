@@ -36,6 +36,8 @@ function disp_episode(d) {
 
   var html = "";
   html += '<h2>' + name + '</h2>';
+  var dllink = window.location + '/download';
+  html += '<a href="' + dllink + '"><i class="icon-download"></i> Download this episode</a>'
   html += '<div id="michelplayer"></div>';
 
   $("#michelcast").html(html);
