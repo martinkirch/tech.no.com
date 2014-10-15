@@ -38,6 +38,7 @@ class TestMyView(unittest.TestCase):
         self.assertEqual(resp.content_type, 'application/rss+xml')
         feed = feedparser.parse(resp.body)
         self.assertEqual(feed.encoding, 'utf-8')
+        self.assertIn('image', feed.feed)
         msg = 'Bozo: {}'.format(feed.get('bozo_exception', 'no'))
         self.assertEqual(feed.bozo, 0, msg)
         self.assertGreater(len(feed.entries), 0)

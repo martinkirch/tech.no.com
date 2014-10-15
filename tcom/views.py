@@ -51,6 +51,13 @@ class ItunesRSS(PyRSS2Gen.RSS2):
         "version": "2.0",
     }
 
+    def publish_extensions(self, handler):
+        # implement this method to embed the <itunes:*> elements
+        # into the channel header.
+        if self.image_url is not None:
+            handler.startElement('itunes:image', {'href': self.image_url})
+            handler.endElement('itunes:image')
+
 @view_config(route_name='rssfeed')
 def view_rss(request):
     rss = ItunesRSS(title='Michel Platiniste podcast',
@@ -58,6 +65,7 @@ def view_rss(request):
                     description='The Michel Platiniste podcast',
                     items=tcom.episodes.entries(),
                     )
+    rss.image_url = 'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg'
     resp = Response(rss.to_xml(encoding='utf-8'),
                     content_type='application/rss+xml')
     return resp
