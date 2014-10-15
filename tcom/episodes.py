@@ -31,7 +31,7 @@ def make_enclosure(slug):
 
 
 def enclosure_length(slug):
-    return 0
+    return LENGTH[slug]
 
 
 def entries():
@@ -210,3 +210,41 @@ EPISODES = [
      datetime.datetime(2011, 11, 15, 7, 55, 17, tzinfo=tzutc()),
      ),
     ]
+
+
+LENGTH = {
+    'downpitchd-summer':                       106358467,
+    'groovybaby':                               79936817,
+    'just-drift':                               64490880,
+    'liqueur-forte-ou-cafe-noir':               29255022,
+    'lunettes-carrees-chemises-a-carreaux':     84813360,
+    'minimal-sunday':                           54653568,
+    'ode-aux-nuits':                           105249600,
+    'once-you-go-in-you-dont-come-out':         54826080,
+    'pas-modoro-classique':                     66767227,
+    'pile-ou-face':                             57486720,
+    'ping-pong-minitex':                       189446400,
+    'promo-022010':                            113860440,
+    'sample-funky':                             21660315,
+    'smooth':                                   70748885,
+    'techno-062009':                            35550467,
+    'the-pomodoro-sessions-episode-10':         60142611,
+    'the-pomodoro-sessions-episode-11':         60004445,
+    'the-pomodoro-sessions-episode-12':         28018560,
+    'the-pomodoro-sessions-episode-13':         29723904,
+    'the-pomodoro-sessions-episode-1':          23695872,
+    'the-pomodoro-sessions-episode-2':          46068526,
+    'the-pomodoro-sessions-episode-3':          24498816,
+    'the-pomodoro-sessions-episode-4':          49736330,
+    'the-pomodoro-sessions-episode-5':          57525992,
+    'the-pomodoro-sessions-episode-6':          48783586,
+    'the-pomodoro-sessions-episode-7':          32264640,
+    'the-pomodoro-sessions-episode-8':          24755328,
+    'the-pomodoro-sessions-episode-9':          59897729,
+    'tokamix-2-la-guerre-contre-les-machines': 102189008,
+    'tout-le-monde-samuse-a-115bpm':            44971008,
+    'voyage-voyages-le-retour':                138232859,
+    'voyage-voyages':                           86278833,
+    'warming-up-grehack-2012':                 233538950,
+    '2999-seconds': 0,
+     }
