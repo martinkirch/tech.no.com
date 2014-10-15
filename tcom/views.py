@@ -47,6 +47,7 @@ class ItunesRSS(PyRSS2Gen.RSS2):
 
     rss_attrs = {
         "xmlns:itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd",
+        "xmlns:media": "http://search.yahoo.com/mrss/",
         "version": "2.0",
     }
 

@@ -38,13 +38,14 @@ class TestMyView(unittest.TestCase):
         self.assertEqual(resp.content_type, 'application/rss+xml')
         feed = feedparser.parse(resp.body)
         self.assertEqual(feed.encoding, 'utf-8')
-        self.assertEqual(feed.bozo, 0)
+        msg = 'Bozo: {}'.format(feed.get('bozo_exception', 'no'))
+        self.assertEqual(feed.bozo, 0, msg)
         self.assertGreater(len(feed.entries), 0)
         entry = feed.entries[0]
         self.assertNotEqual(entry.summary, '')
         self.assertNotEqual(entry.enclosures, [])
         self.assertIn('published', entry)
-        self.assertIn('image', entry)
+        self.assertIn('media_thumbnail', entry)
 
     def test_download(self):
         from .views import view_download
