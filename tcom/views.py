@@ -1,5 +1,6 @@
 from pyramid.response import Response
 from pyramid.view import view_config
+from pyramid.httpexceptions import HTTPFound
 
 from sqlalchemy.exc import DBAPIError
 
@@ -47,3 +48,10 @@ def view_rss(request):
     resp = Response(rss.to_xml(encoding='utf-8'),
                     content_type='application/rss+xml')
     return resp
+
+@view_config(route_name='download')
+def view_download(request):
+    slug = request.matchdict['slug']
+    fmt = 'https://s3.amazonaws.com/files.tech.no.com/podcasts/{}.mp3'
+    url = fmt.format(slug)
+    return HTTPFound(location=url)
