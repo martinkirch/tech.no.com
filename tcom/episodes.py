@@ -14,7 +14,7 @@ class ItunesRSSItem(PyRSS2Gen.RSSItem):
 
     def publish_extensions(self, handler):
         if self.image_url is not None:
-            handler.startElement('media:thumbnail', {'href': self.image_url})
+            handler.startElement('media:thumbnail', {'url': self.image_url})
             handler.endElement('media:thumbnail')
 
 
