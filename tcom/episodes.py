@@ -53,6 +53,11 @@ def entries():
 
 
 EPISODES = [
+    Episode(u'The Pomodoro Sessions - Episode 14',
+     u'the-pomodoro-sessions-episode-14',
+     u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series.\r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break! \r\n\r\nOccasionally Michel needs to get a fix of oppressive songs.",
+     datetime.datetime(2014, 10, 20, 8, 26, 17, tzinfo=tzutc()),
+     ),
     Episode(u'The Pomodoro Sessions - Episode 13',
      u'the-pomodoro-sessions-episode-13',
      u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series. \r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break!\r\n\r\nIn this episode, cold dub techno. I finished it with a lovely Moby remix which I hope you won't find out of place; I didn't.",
@@ -246,6 +251,7 @@ LENGTH = {
     'the-pomodoro-sessions-episode-11':         60004445,
     'the-pomodoro-sessions-episode-12':         28018560,
     'the-pomodoro-sessions-episode-13':         29723904,
+    'the-pomodoro-sessions-episode-14':         60910331,
     'the-pomodoro-sessions-episode-1':          23695872,
     'the-pomodoro-sessions-episode-2':          46068526,
     'the-pomodoro-sessions-episode-3':          24498816,
@@ -265,6 +271,7 @@ LENGTH = {
 
 
 PICS = {
+    u'the-pomodoro-sessions-episode-14': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/846f1588-b2b9-4d31-83b1-33334e16838b.png',
     u'the-pomodoro-sessions-episode-13': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/3bafe648-175a-46cf-b955-b63191df2060.png',
     u'the-pomodoro-sessions-episode-12': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/db974d0d-7853-4ad4-be5e-018293eaa467.png',
     u'just-drift': u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/34fd7667-1344-462e-8df3-2b33124dd839.jpg',
