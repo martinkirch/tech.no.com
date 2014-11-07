@@ -51,6 +51,13 @@ def entries():
 
 
 EPISODES = [
+    Episode(u'The Pomodoro Sessions - Episode 15',
+     u'the-pomodoro-sessions-episode-15',
+     u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series.\r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break! \r\n\r\nDon't drink too much coffee during this one.",
+     datetime.datetime(2014, 11, 5, 22, 8, 42, tzinfo=tzutc()),
+     37714646,
+     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/25287090-125c-4c25-bb0b-0366da9fe2b4.png',
+     ),
     Episode(u'The Pomodoro Sessions - Episode 14',
      u'the-pomodoro-sessions-episode-14',
      u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series.\r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break! \r\n\r\nOccasionally Michel needs to get a fix of oppressive songs.",
