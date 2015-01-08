@@ -13,22 +13,6 @@ import PyRSS2Gen
 
 import tcom.episodes
 
-conn_err_msg = """\
-Pyramid is having a problem using your SQL database.  The problem
-might be caused by one of the following things:
-
-1.  You may need to run the "initialize_tcom_db" script
-    to initialize your database tables.  Check your virtual 
-    environment's "bin" directory for this script and try to run it.
-
-2.  Your database server may not be running.  Check that the
-    database server referred to by the "sqlalchemy.url" setting in
-    your "development.ini" file is running.
-
-After you fix the problem, please restart the Pyramid application to
-try it again.
-"""
-
 @view_config(route_name='home', renderer='home.mako')
 def view_home(request):
     return {}
@@ -76,3 +60,7 @@ def view_download(request):
     fmt = 'https://s3-eu-west-1.amazonaws.com/files.tech.no.com/podcasts/{}.mp3'
     url = fmt.format(slug)
     return HTTPFound(location=url)
+
+@view_config(route_name='podcast', renderer='podcast.mako')
+def view_podcast(request):
+    return {}
