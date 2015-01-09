@@ -1,4 +1,11 @@
 #!/usr/bin/env python
 """
-Check
+How to upload
+
+  - make a .yml file
+  - build the logo with scripts/make-logo -y
+  - upload to mixcloud
+  - upload logo to mixcloud
+  - upload mix to S3
+  - update podcast data on website
 """
