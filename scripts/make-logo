@@ -2,6 +2,7 @@
 """
 Usage:
     make-logo <ep_num> <palette_name> <idx_ext> <idx_int> <idx_txt>
+    make-logo -y <yml_file>
 
 Example:
     ./make-logo 7 'casual with skirt' 1 2 0
@@ -11,6 +12,7 @@ import docopt
 import os
 import requests
 import string
+import yaml
 
 def tex_document(episode, extcolor, intcolor, txtcolor):
     lines = [r'\documentclass[tikz]{standalone}',
@@ -62,8 +64,26 @@ def make_logo(params):
     os.system('pdftoppm -png -scale-to 256 temp.pdf > temp.png')
 
 
+def extract_params_from_yml(yml_file):
+    with open(yml_file) as f:
+        y = yaml.load(f)
+    d = y['logo']
+    print y
+    params = {
+            '<ep_num>': d['num'],
+            '<palette_name>': d['palette'],
+            '<idx_ext>': d['ext'],
+            '<idx_int>': d['int'],
+            '<idx_txt>': d['txt'],
+        }
+    return params
+
+
 def main():
     params = docopt.docopt(__doc__)
+    yml_file = params['<yml_file>']
+    if yml_file is not None:
+        params = extract_params_from_yml(yml_file)
     make_logo(params)
 
 
