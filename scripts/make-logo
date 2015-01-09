@@ -68,7 +68,6 @@ def extract_params_from_yml(yml_file):
     with open(yml_file) as f:
         y = yaml.load(f)
     d = y['logo']
-    print y
     params = {
             '<ep_num>': d['num'],
             '<palette_name>': d['palette'],

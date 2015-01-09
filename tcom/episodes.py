@@ -5,6 +5,8 @@ A DB would be better, but hey.
 
 import datetime
 import PyRSS2Gen
+import os.path
+import yaml
 from dateutil.tz import tzutc
 
 
@@ -45,10 +47,24 @@ class Episode:
         url = 'http://tech.no.com/episode/{}/download'.format(self.slug)
         return PyRSS2Gen.Enclosure(url, self.length, 'audio/mpeg')
 
+    @staticmethod
+    def from_yml(yml_file):
+        with open(yml_file) as f:
+            d = yaml.load(f)
+        title = d['title']
+        description = d['desc']
+        pubDate = d['meta']['published']
+        length = d['meta']['size']
+        pic = d['meta']['pic']
+        slug = os.path.splitext(os.path.basename(yml_file))[0]
+        e = Episode(title, slug, description, pubDate, length, pic)
+        return e
+
 
 def entries():
-    return [ep.to_rss_item() for ep in EPISODES]
-
+    ep_yml = ['episodes/the-pomodoro-sessions-episode-16.yml']
+    episodes = [Episode.from_yml(f) for f in ep_yml] + EPISODES
+    return [ep.to_rss_item() for ep in episodes]
 
 EPISODES = [
     Episode(u'The Pomodoro Sessions - Episode 15',

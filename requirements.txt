@@ -4,4 +4,5 @@ PasteScript==1.7.5
 pyramid==1.5.1
 PyRSS2Gen==1.1
 python-dateutil==2.2
+pyyaml==3.11
 waitress==0.8.9
