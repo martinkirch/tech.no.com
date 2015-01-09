@@ -53,6 +53,7 @@ class Episode:
             d = yaml.load(f)
         title = d['title']
         description = d['desc']
+        description += '\n\n' + render_tracklist(d['tracks'])
         pubDate = d['meta']['published']
         length = d['meta']['size']
         pic = d['meta']['pic']
@@ -60,6 +61,11 @@ class Episode:
         e = Episode(title, slug, description, pubDate, length, pic)
         return e
 
+
+def render_tracklist(tracks):
+    r = 'Tracklist:\n\n'
+    r += '\n'.join(['{artist} - {track}'.format(**track) for track in tracks])
+    return r
 
 def entries():
     ep_yml = ['episodes/the-pomodoro-sessions-episode-16.yml']
