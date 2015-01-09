@@ -19,6 +19,7 @@ def main(global_config, **settings):
     config.add_route('download', '/episode/{slug}/download')
     config.add_route('rssfeed', '/podcast.xml')
     config.add_route('podcast', '/podcast')
+    config.add_route('favicon', '/favicon.ico')
     config.scan()
     return config.make_wsgi_app()
 

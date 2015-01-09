@@ -17,6 +17,10 @@ import tcom.episodes
 def view_home(request):
     return {}
 
+@view_config(route_name='favicon')
+def view_favicon(request):
+    return HTTPFound(location='/static/favicon.ico')
+
 @view_config(route_name='episode', renderer='episode.mako')
 def view_episode(request):
     slug = request.matchdict['slug']
