@@ -63,8 +63,10 @@ class Episode:
 
 
 def render_tracklist(tracks):
-    r = 'Tracklist:\n\n'
-    r += '\n'.join(['{artist} - {track}'.format(**track) for track in tracks])
+    r = '<h3>Tracklist:</h3>'
+    r += '<ul>'
+    r += ''.join(['<li>{artist} - {track}</li>'.format(**track) for track in tracks])
+    r += '</ul>'
     return r
 
 def entries():
