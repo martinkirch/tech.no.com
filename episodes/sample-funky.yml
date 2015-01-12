@@ -1,0 +1,61 @@
+title: Sample & Funky
+desc: Artists love sampling other tracks. In this mix we jump from one track
+      to another through a sample in common.
+tags:
+  - Sample Chain
+  - Samples
+  - Hip hop
+  - Pop
+tracks:
+  - start: 0:00
+    artist: Bel-Sha-Zaar
+    track: Introduction
+  - start: 1:25
+    artist: Deee Lite
+    track: Groove Is In The Heart
+  - start: 4:22
+    artist: Vernon Burch
+    track: Get Up
+  - start: 6:42
+    artist: Madison Avenue
+    track: Who the hell are you
+  - start: 9:00
+    artist: Madison Avenue
+    track: Don't Call Me Baby
+  - start: 10:09
+    artist: Pino d'angio 
+    track: Ma quale idea
+  - start: 11:28
+    artist: Menelik & No Se
+    track: Quelle Aventure
+  - start: 12:58
+    artist: Doctor Dré & Ed Lover
+    track: Back Up Off Me
+  - start: 13:32
+    artist: Sugarhill Gang
+    track: 8th Wonder
+  - start: 14:49
+    artist: Def jef
+    track: Calis All That
+  - start: 16:00
+    artist: T.S. Monk
+    track: Bon Bon Vie
+  - start: 17:14
+    artist: The Jaz
+    track: Pumpin'
+  - start: 18:30
+    artist: KC & The Sunshine Band
+    track: "I Get Lifted"
+  - start: 19:33
+    artist: Digital Underground
+    track: Doowutchyalike
+  - start: 21:13
+    artist: Vaughan Mason & Crew
+    track: Bounce Rock Skate Roll
+  - start: 21:30
+    artist: Daft Punk
+    track: Da Funk
+meta:
+    published: 2013-12-03T10:20:24+00:00
+    pic: http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg
+    size: 21660315
