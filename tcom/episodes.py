@@ -54,6 +54,8 @@ class Episode:
             d = yaml.load(f)
         title = d['title']
         description = d['desc']
+        if description is None:
+            description = ''
         description += '\n\n' + render_tracklist(d['tracks'])
         pubDate = d['meta']['published']
         length = d['meta']['size']
@@ -64,9 +66,11 @@ class Episode:
 
 
 def render_tracklist(tracks):
+    if tracks is None:
+        return ''
     r = '<h3>Tracklist:</h3>'
     r += '<ul>'
-    r += ''.join(['<li>{artist} - {track}</li>'.format(**track) for track in tracks])
+    r += ''.join([u'<li>{artist} - {track}</li>'.format(**track) for track in tracks])
     r += '</ul>'
     return r
 
@@ -197,54 +201,5 @@ EPISODES = [
      datetime.datetime(2012, 7, 10, 22, 49, 52, tzinfo=tzutc()),
      106358467,
      u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/cafd601a-0ce0-48e6-b57e-1e3b4bc766ee.jpg',
-     ),
-    Episode(u'Ping pong - Minitex',
-     u'ping-pong-minitex',
-     u'',
-     datetime.datetime(2012, 4, 6, 10, 13, 36, tzinfo=tzutc()),
-     189446400,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/f55c12e9-4e3f-4c8e-8938-39cd52026e7f.jpg',
-     ),
-    Episode(u'GroovyBaby',
-     u'groovybaby',
-     u'La p\xeache !\r\n\r\n\r\nMarty',
-     datetime.datetime(2012, 3, 29, 23, 4, 22, tzinfo=tzutc()),
-     79936817,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/406f2050-257f-4987-b275-3d4279e3a8d3.jpg',
-     ),
-    Episode(u'Smooth',
-     u'smooth',
-     u"L'ami du petit d\xe9jeuner sonore, feat. Smoothie La Tr\xe8s Tr\xe8s Smooth.\r\n\r\nD\xe9sol\xe9 pour les deux lancements bizarres dans le dernier tiers, le matos se fait vieux.\r\n\r\n\r\n<3\r\n\r\nMarty",
-     datetime.datetime(2012, 3, 20, 23, 3, 3, tzinfo=tzutc()),
-     70748885,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/d07ee824-f404-4c54-a721-5bd5027f41c3.png',
-     ),
-    Episode(u'Ode aux Nuits',
-     u'ode-aux-nuits',
-     u"Une s\xe9lection de la programmation de l'\xe9dition \xe9dition 2012 des Nuits Sonores .",
-     datetime.datetime(2012, 3, 8, 10, 18, 50, tzinfo=tzutc()),
-     105249600,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/92b6b957-b2a8-4009-b2ae-341bfe267f23.jpg',
-     ),
-    Episode(u'Techno 06/2009',
-     u'techno-062009',
-     u'',
-     datetime.datetime(2011, 12, 5, 14, 28, 27, tzinfo=tzutc()),
-     35550467,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/4598b3d0-1718-45f2-b68c-2e2b3354b188.jpg',
-     ),
-    Episode(u'Promo 02/2010',
-     u'promo-022010',
-     u'An "old" mix I found sitting between two mp3s \u263a',
-     datetime.datetime(2011, 11, 17, 11, 49, 20, tzinfo=tzutc()),
-     113860440,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/1283a5f8-ce8b-4c0a-8c45-764143d7749d.jpg',
-     ),
-    Episode(u'2999 seconds',
-     u'2999-seconds',
-     u'2999 seconds of techno, old & new.',
-     datetime.datetime(2011, 11, 15, 7, 55, 17, tzinfo=tzutc()),
-     0,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/347746e5-c524-4279-9b42-5fd9be23ce34.jpg',
      ),
     ]

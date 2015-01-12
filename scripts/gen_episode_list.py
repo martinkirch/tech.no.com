@@ -31,7 +31,7 @@ def print_yml(cc):
     desc_indent = '\n' + 6 * ' '
     desc = cc.description().replace('\r\n', desc_indent)
     fill_desc = desc_indent.join(textwrap.wrap(desc, replace_whitespace=False))
-    print u'desc: {}'.format(fill_desc)
+    print u'desc: {}'.format(fill_desc).encode('utf-8')
     print 'tags:'
     for tag in cc.tags:
         print '  - {}'.format(tag)
@@ -41,8 +41,8 @@ def print_yml(cc):
         minutes = start / 60
         seconds = start % 60
         print '  - start: {}:{:02}'.format(minutes, seconds)
-        print '    artist: {}'.format(section.track.artist.name)
-        print '    track: {}'.format(section.track.name)
+        print u'    artist: {}'.format(section.track.artist.name).encode('utf-8')
+        print u'    track: {}'.format(section.track.name).encode('utf-8')
     url = get_pic(cc)
     print 'meta:'
     print '    published: {}'.format(cc.created_time.isoformat())
