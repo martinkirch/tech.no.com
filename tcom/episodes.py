@@ -1,6 +1,5 @@
 """
-Hardcoded list of episodes.
-A DB would be better, but hey.
+Get episodes from yml files.
 """
 
 import datetime
@@ -76,46 +75,8 @@ def render_tracklist(tracks):
 
 def entries():
     ep_yml = glob.glob('episodes/*.yml')
-    episodes = [Episode.from_yml(f) for f in ep_yml] + EPISODES
+    episodes = [Episode.from_yml(f) for f in ep_yml]
     def date_of(ep):
         return ep.pubDate.date()
     episodes.sort(key=date_of, reverse=True)
     return [ep.to_rss_item() for ep in episodes]
-
-EPISODES = [
-    Episode(u'Just Drift',
-     u'just-drift',
-     u'I started deep in the spectrum of electronic music, with progressive house. My initial goal was to cut it to 25min to make a pomodoro mix but it was just too intense.\r\nI could not leave it there.\r\n\r\nI hope you will enjoy this mix as much as I enjoyed putting it together.\r\n\r\n\u2665\r\nE.',
-     datetime.datetime(2014, 4, 28, 12, 41, 39, tzinfo=tzutc()),
-     64490880,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/34fd7667-1344-462e-8df3-2b33124dd839.jpg',
-     ),
-    Episode(u'Pas-modoro classique',
-     u'pas-modoro-classique',
-     u"Un pomodoro en forme de trait d'union entre la Renaissance et la musique classique contemporaine.",
-     datetime.datetime(2014, 4, 24, 14, 5, 56, tzinfo=tzutc()),
-     66767227,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg',
-     ),
-    Episode(u'The Pomodoro Sessions - Episode 11',
-     u'the-pomodoro-sessions-episode-11',
-     u'Upset => Techno\r\n\r\n\u2665 \r\n\r\nMichel',
-     datetime.datetime(2014, 4, 15, 7, 20, 26, tzinfo=tzutc()),
-     60004445,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/336ad8a5-b4ff-4371-815c-ea3e4f81538b.png',
-     ),
-    Episode(u'The Pomodoro Sessions - Episode 10',
-     u'the-pomodoro-sessions-episode-10',
-     u'Spring => Tech house.\r\n\r\n\u2665\r\n\r\nMichel',
-     datetime.datetime(2014, 4, 7, 8, 38, 3, tzinfo=tzutc()),
-     60142611,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/19b92597-f3b4-46df-a4cb-06281ee8c644.png',
-     ),
-    Episode(u'Voyage, Voyages, le retour',
-     u'voyage-voyages-le-retour',
-     u"Yet another set for the tired lone traveller's headphones\r\n\r\n\u2665 & \u266b ,\r\n\r\nMichel",
-     datetime.datetime(2014, 3, 25, 8, 21, 13, tzinfo=tzutc()),
-     138232859,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/8d5f7979-7b29-467b-b289-c55462ca9729.jpg',
-     ),
-    ]
