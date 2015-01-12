@@ -27,7 +27,7 @@ def fmt(cc):
 
 
 def print_yml(cc):
-    print u'title: {}'.format(cc.name)
+    print u'title: {}'.format(cc.name).encode('utf-8')
     desc_indent = '\n' + 6 * ' '
     desc = cc.description().replace('\r\n', desc_indent)
     fill_desc = desc_indent.join(textwrap.wrap(desc, replace_whitespace=False))
