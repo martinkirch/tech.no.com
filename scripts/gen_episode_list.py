@@ -1,6 +1,7 @@
 import mixcloud
 import sys
 import textwrap
+import requests
 
 def main():
     m = mixcloud.Mixcloud()
@@ -42,8 +43,17 @@ def print_yml(cc):
         print '  - start: {}:{:02}'.format(minutes, seconds)
         print '    artist: {}'.format(section.track.artist.name)
         print '    track: {}'.format(section.track.name)
+    url = get_pic(cc)
     print 'meta:'
     print '    published: {}'.format(cc.created_time.isoformat())
+    print '    pic: {}'.format(url)
+
+
+def get_pic(cc):
+    slug = cc.key
+    url = 'https://api.mixcloud.com/michelplatiniste/' + slug
+    cc_data = requests.get(url).json()
+    return cc_data['pictures']['large']
 
 
 def quote(s):
