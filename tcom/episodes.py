@@ -73,6 +73,9 @@ def render_tracklist(tracks):
 def entries():
     ep_yml = glob.glob('episodes/*.yml')
     episodes = [Episode.from_yml(f) for f in ep_yml] + EPISODES
+    def date_of(ep):
+        return ep.pubDate.date()
+    episodes.sort(key=date_of, reverse=True)
     return [ep.to_rss_item() for ep in episodes]
 
 EPISODES = [
