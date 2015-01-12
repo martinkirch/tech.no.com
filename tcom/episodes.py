@@ -6,6 +6,7 @@ A DB would be better, but hey.
 import datetime
 import PyRSS2Gen
 import os.path
+import glob
 import yaml
 from dateutil.tz import tzutc
 
@@ -70,18 +71,11 @@ def render_tracklist(tracks):
     return r
 
 def entries():
-    ep_yml = ['episodes/the-pomodoro-sessions-episode-16.yml']
+    ep_yml = glob.glob('episodes/*.yml')
     episodes = [Episode.from_yml(f) for f in ep_yml] + EPISODES
     return [ep.to_rss_item() for ep in episodes]
 
 EPISODES = [
-    Episode(u'The Pomodoro Sessions - Episode 15',
-     u'the-pomodoro-sessions-episode-15',
-     u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series.\r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break! \r\n\r\nDon't drink too much coffee during this one.",
-     datetime.datetime(2014, 11, 5, 22, 8, 42, tzinfo=tzutc()),
-     37714646,
-     u'http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/25287090-125c-4c25-bb0b-0366da9fe2b4.png',
-     ),
     Episode(u'The Pomodoro Sessions - Episode 14',
      u'the-pomodoro-sessions-episode-14',
      u"The Pomodoro technique is a time management strategy in which you split tasks by 25 min intervals. As long as a mix from this series.\r\nLoad a Pomodoro Sessions episode, click play, work. When it's over, take a break! \r\n\r\nOccasionally Michel needs to get a fix of oppressive songs.",

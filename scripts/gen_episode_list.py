@@ -29,7 +29,7 @@ def fmt(cc):
 def print_yml(cc):
     print u'title: {}'.format(cc.name)
     desc_indent = '\n' + 6 * ' '
-    desc = cc.description().replace('\n', desc_indent)
+    desc = cc.description().replace('\r\n', desc_indent)
     fill_desc = desc_indent.join(textwrap.wrap(desc, replace_whitespace=False))
     print u'desc: {}'.format(fill_desc)
     print 'tags:'
