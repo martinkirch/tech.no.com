@@ -1,0 +1,42 @@
+title: The Pomodoro Sessions - Episode 17
+desc: |
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+      In this episode : welcome aboard Michel Platiniste Airlines.
+      We hope you'll have a smooth trip.
+logo:
+    num: 17
+    palette: 3595855
+    ext: 1
+    int: 2
+    txt: 4
+tags:
+  - Pomodoro
+  - Michel
+  - Voyage
+  - Smooth
+tracks:
+  - start: 0
+    artist: M.O.O.N. Pro
+    track: Tubus (Ambient Mix)
+  - start: 2:18
+    artist: Clara Moto
+    track: Holy
+  - start: 7:30
+    artist: Anja Garbarek
+    track: I Won't Hurt You
+  - start: 10:00
+    artist: Jakwob
+    track: Fade (Etherwood Remix)
+  - start: 13:10
+    artist: Flight Facilities
+    track: Clair De Lune Feat. Christine Hoberg
+  - start: 20:18
+    artist: Easy Star All*Stars
+    track: An Airbag Saved My Dub
+meta:
+    published: 2015-01-13T11:38:31
+    size: 37355818
+    pic: http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/profile/17f0211d-20a1-417c-9901-4b2e6b4a4831.jpeg

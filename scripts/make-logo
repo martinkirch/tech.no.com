@@ -36,7 +36,7 @@ def tex_document(episode, extcolor, intcolor, txtcolor):
 
 
 def palette_named(title_or_code):
-    if all(c in string.digits for c in title_or_code):
+    if type(title_or_code == int) or all(c in string.digits for c in title_or_code):
         url = 'http://www.colourlovers.com/api/palette/{code}'.format(code=title_or_code)
         params={ 'format': 'json', }
     else:
