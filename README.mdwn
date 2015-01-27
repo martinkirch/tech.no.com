@@ -1,0 +1,1 @@
+# ⠋ tech.no.com ⣠ [![Build Status](https://img.shields.io/travis/emillon/tech.no.com.svg)](http://travis-ci.org/emillon/tech.no.com) [![Coverage Status](https://img.shields.io/coveralls/emillon/tech.no.com.svg)](https://coveralls.io/r/emillon/tech.no.com) [![Dependency Status](https://img.shields.io/gemnasium/emillon/tech.no.com.svg)](https://gemnasium.com/emillon/tech.no.com)
