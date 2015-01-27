@@ -6,6 +6,8 @@ install:
   - "pip install coveralls --use-mirrors"
 python:
   - "2.7"
-script: "nosetests --with-coverage --cover-package=app"
+script:
+  - ./scripts/yaml_check
+  - "nosetests --with-coverage --cover-package=app"
 after_success:
   coveralls

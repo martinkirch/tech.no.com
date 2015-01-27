@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+
+import glob
+import yaml
+
+
+def yaml_check(data):
+    for key in ['title', 'desc', 'tags', 'tracks']:
+        assert(key in data)
+
+    tracks = data['tracks'] or []
+    for t in tracks:
+        for tk in ['start', 'artist', 'track']:
+            assert(tk in t)
+        start = t['start']
+        assert(type(start) == int)
+
+    if 'meta' in data:
+        meta = data['meta']
+        for mk in ['published', 'pic', 'size']:
+            assert(mk in meta)
+
+
+def main():
+    for yaml_fname in glob.glob('episodes/*.yml'):
+        try:
+            with open(yaml_fname) as y:
+                d = yaml.load(y)
+            yaml_check(d)
+        except Exception:
+            print "Error while checking {}".format(yaml_fname)
+            raise
+
+
+if __name__ == '__main__':
+    main()
