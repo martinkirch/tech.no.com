@@ -1,4 +1,4 @@
 docopt
 feedparser
 requests
--e git://github.com/emillon/mixcloud.git#egg=mixcloud
+mixcloud
