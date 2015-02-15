@@ -1,5 +1,6 @@
 from flask import Blueprint
 from flask import redirect
+from flask import render_template
 from flask import Response
 import PyRSS2Gen
 
@@ -10,7 +11,7 @@ tcom = Blueprint('tcom', __name__)
 
 @tcom.route('/')
 def home():
-    return 'Hello, world'
+    return render_template('home.html')
 
 
 @tcom.route('/favicon.ico')
@@ -40,7 +41,7 @@ class ItunesRSS(PyRSS2Gen.RSS2):
 
 @tcom.route('/podcast')
 def podcast_info():
-    pass
+    return render_template('podcast.html')
 
 
 @tcom.route('/podcast.xml')

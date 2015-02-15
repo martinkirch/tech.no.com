@@ -13,6 +13,10 @@ class TestMyView(TestCase):
         r = self.client.get(url_for('.home'))
         self.assert200(r)
 
+    def test_podcast_info(self):
+        r = self.client.get(url_for('.podcast_info'))
+        self.assert200(r)
+
     def test_rss(self):
         r = self.client.get(url_for('.podcast_feed'))
         self.assertEqual(r.content_type, 'application/rss+xml')
