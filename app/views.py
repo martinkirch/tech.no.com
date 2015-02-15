@@ -2,6 +2,7 @@ from flask import Blueprint
 from flask import redirect
 from flask import render_template
 from flask import Response
+from flask import url_for
 import PyRSS2Gen
 
 from podcast import podcast_entries
@@ -16,7 +17,7 @@ def home():
 
 @tcom.route('/favicon.ico')
 def favicon():
-    pass
+    return redirect(url_for('static', filename='favicon.ico'))
 
 
 # Extracted from:

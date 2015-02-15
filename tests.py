@@ -13,6 +13,11 @@ class TestMyView(TestCase):
         r = self.client.get(url_for('.home'))
         self.assert200(r)
 
+    def test_favicon(self):
+        r = self.client.get(url_for('.favicon'), follow_redirects=True)
+        self.assert200(r)
+        self.assertEqual(r.content_type, 'image/vnd.microsoft.icon')
+
     def test_podcast_info(self):
         r = self.client.get(url_for('.podcast_info'))
         self.assert200(r)
