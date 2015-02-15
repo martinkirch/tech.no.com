@@ -62,7 +62,7 @@ def podcast_feed():
 
 @tcom.route('/episode/<slug>')
 def view_episode(slug):
-    pass
+    return render_template('episode.html', slug=slug)
 
 
 @tcom.route('/episode/<slug>/download')

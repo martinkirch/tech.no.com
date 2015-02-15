@@ -38,6 +38,10 @@ class TestMyView(TestCase):
         self.assertIn('media_thumbnail', entry)
         self.assertIn('guid', entry)
 
+    def test_episode(self):
+        r = self.client.get(url_for('.view_episode', slug='blabla'))
+        self.assert200(r)
+
     def test_download(self):
         r = self.client.get(url_for('.download_episode', slug='blabla'))
         self.assertEqual(r.status_code, 302)
