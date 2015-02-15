@@ -13,6 +13,11 @@ def home():
     return 'Hello, world'
 
 
+@tcom.route('/favicon.ico')
+def favicon():
+    pass
+
+
 # Extracted from:
 # https://github.com/DirkR/capturadio/blob/master/capturadio/rss.py
 class ItunesRSS(PyRSS2Gen.RSS2):
@@ -33,6 +38,11 @@ class ItunesRSS(PyRSS2Gen.RSS2):
             handler.endElement('itunes:image')
 
 
+@tcom.route('/podcast')
+def podcast_info():
+    pass
+
+
 @tcom.route('/podcast.xml')
 def podcast_feed():
     rss = ItunesRSS(title='Michel Platiniste podcast',
@@ -46,6 +56,11 @@ def podcast_feed():
     resp = Response(rss.to_xml(encoding='utf-8'),
                     content_type='application/rss+xml')
     return resp
+
+
+@tcom.route('/episode/<slug>')
+def view_episode(slug):
+    pass
 
 
 @tcom.route('/episode/<slug>/download')
