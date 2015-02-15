@@ -1,4 +1,5 @@
 from flask import Blueprint
+from flask import redirect
 from flask import Response
 import PyRSS2Gen
 
@@ -45,3 +46,11 @@ def podcast_feed():
     resp = Response(rss.to_xml(encoding='utf-8'),
                     content_type='application/rss+xml')
     return resp
+
+
+@tcom.route('/episode/<slug>/download')
+def download_episode(slug):
+    bucket = 'files.tech.no.com'
+    fmt = 'https://s3-eu-west-1.amazonaws.com/{}/podcasts/{}.mp3'
+    url = fmt.format(bucket, slug)
+    return redirect(url)

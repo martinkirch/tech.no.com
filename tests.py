@@ -28,10 +28,7 @@ class TestMyView(TestCase):
         self.assertIn('published', entry)
         self.assertIn('media_thumbnail', entry)
         self.assertIn('guid', entry)
-#
-#    def test_download(self):
-#        from .views import view_download
-#        request = testing.DummyRequest()
-#        request.matchdict['slug'] = 'blabla'
-#        resp = view_download(request)
-#        self.assertEqual(resp.status_code, 302)
+
+    def test_download(self):
+        r = self.client.get(url_for('.download_episode', slug='blabla'))
+        self.assertEqual(r.status_code, 302)
