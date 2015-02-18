@@ -1,20 +1,37 @@
---- 
+---
 - hosts: webservers
-  user: admin
   sudo: True
 
   vars:
     app_name: tcom
-    repo_url: git@github.com:emillon/tech.no.com.git
+    repo_url: https://github.com/emillon/tech.no.com.git
     repo_remote: origin
     repo_version: master
     webapps_dir: /srv/webapps
     wsgi_callable: app
-    wsgi_file: app.py
+    wsgi_file: wsgi.py
     server_name: tech.no.com
     virtualenv_dir: "{{webapps_dir}}/{{app_name}}/venv"
 
   tasks:
+    - name: install common packages needed for python application development
+      action: apt pkg={{item}} state=installed update_cache=yes
+      with_items:
+        - git-core
+        - nginx
+        - python-virtualenv
+        - supervisor
+        - uwsgi
+        - uwsgi-plugin-python
+
+    - name: start supervisord service and have it run during system startup
+      action: service name=supervisor state=started enabled=yes
+
+    - name: start nginx service and have it run during system startup
+      action: service name=nginx state=started enabled=yes
+
+    - name: create webapps directory
+      action: file dest=/srv/webapps state=directory
     - name: ensure log directory
       action: file dest={{webapps_dir}}/{{app_name}}/log state=directory
 
@@ -25,7 +42,6 @@
           dest: "{{webapps_dir}}/{{app_name}}/src"
           remote: "{{repo_remote}}"
           version: "{{repo_version}}"
-          key_file: /home/admin/.ssh/id_rsa
       notify:
         - restart app
 
@@ -33,14 +49,6 @@
       action: pip
       args:
           requirements: "{{webapps_dir}}/{{app_name}}/src/requirements.txt"
-          virtualenv: "{{virtualenv_dir}}"
-          state: present
-
-    - name: install site package
-      action: pip
-      args:
-          name: .
-          chdir: "{{webapps_dir}}/{{app_name}}/src"
           virtualenv: "{{virtualenv_dir}}"
           state: present
 

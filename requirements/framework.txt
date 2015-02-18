@@ -1,0 +1,4 @@
+Flask==0.10.1
+PyRSS2Gen==1.1
+python-dateutil==2.4
+pyyaml==3.11

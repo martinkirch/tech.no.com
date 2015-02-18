@@ -35,13 +35,12 @@ class Episode:
             title=self.title,
             description=self.description,
             enclosure=self.enclosure(),
-            pubDate = self.pubDate,
-            link = url,
-            guid = PyRSS2Gen.Guid(url),
+            pubDate=self.pubDate,
+            link=url,
+            guid=PyRSS2Gen.Guid(url),
             )
         item.image_url = self.pic
         return item
-
 
     def enclosure(self):
         url = 'http://tech.no.com/episode/{}/download'.format(self.slug)
@@ -64,19 +63,27 @@ class Episode:
         return e
 
 
+def render_track(track):
+    return u'<li>{artist} - {track}</li>'.format(**track)
+
+
 def render_tracklist(tracks):
     if tracks is None:
         return ''
     r = '<h3>Tracklist:</h3>'
     r += '<ul>'
-    r += ''.join([u'<li>{artist} - {track}</li>'.format(**track) for track in tracks])
+    r += ''.join([render_track(track) for track in tracks])
     r += '</ul>'
     return r
 
-def entries():
-    ep_yml = glob.glob('episodes/*.yml')
+
+def podcast_entries():
+    this_dir = os.path.dirname(os.path.abspath(__file__))
+    ep_yml = glob.glob(os.path.join(this_dir, '..', 'episodes/*.yml'))
     episodes = [Episode.from_yml(f) for f in ep_yml]
+
     def date_of(ep):
         return ep.pubDate.date()
+
     episodes.sort(key=date_of, reverse=True)
     return [ep.to_rss_item() for ep in episodes]
