@@ -16,7 +16,7 @@ class TestMyView(TestCase):
     def test_favicon(self):
         r = self.client.get(url_for('.favicon'), follow_redirects=True)
         self.assert200(r)
-        self.assertEqual(r.content_type, 'image/vnd.microsoft.icon')
+        self.assertIn('icon', r.content_type)
 
     def test_podcast_info(self):
         r = self.client.get(url_for('.podcast_info'))
