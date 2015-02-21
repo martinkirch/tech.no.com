@@ -1,23 +1,18 @@
 function dispmichel(d) {
     var eps = d.data;
     var html = "";
-    html += '<ul class="thumbnails">'
     for (i in eps) {
         var slug = eps[i].slug;
         var url = "/episode/" + slug;
         var name = eps[i].name;
-
-        html += '  <li class="span4">';
-        html += '   <a href="' + url + '">'
-        html += '    <div class="thumbnail">'
+        html += '   <div class="col-md-4 episode-thumbnail">'
+        html += '    <a href="' + url + '">'
         html += '      <img src="'  + eps[i].pictures.large + '" />';
         html += '      <h3>' + name + '</h3>'
-        html += '    </div>'
-        html += '   </a>'
-        html += '  </li>'
+        html += '    </a>'
+        html += '   </div>'
 
     }
-    html += '</ul>'
     $("#michelcasts").append(html);
 }
 
@@ -37,7 +32,7 @@ function disp_episode(d) {
   var html = "";
   html += '<h2>' + name + '</h2>';
   var dllink = window.location + '/download';
-  html += '<a href="' + dllink + '"><i class="icon-download"></i> Download this episode</a>'
+  html += '<a href="' + dllink + '"><i class="glyphicon glyphicon-download"></i> Download this episode</a>'
   html += '<div id="michelplayer"></div>';
 
   $("#michelcast").html(html);

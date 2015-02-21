@@ -2,7 +2,7 @@
     <head>
         <title>tech.no.com</title>
         <link rel="stylesheet"
-              href="{{ url_for('static', filename='css/bootstrap.css') }}"
+              href="{{ url_for('xstatic', xs_package='bootstrap', filename='css/bootstrap.min.css') }}"
               type="text/css"
               media="screen"
               charset="utf-8"
@@ -10,16 +10,12 @@
         <style type="text/css"
               media="screen"
               charset="utf-8">
-        nav {
-            position: fixed;
-            top: 10;
-            left: 10;
-            bottom: 10;
-            width: 150px;
+        .episode-thumbnail {
+            padding: 10px;
         }
 
-        nav .social {
-            margin-top: 30px;
+        .episode-thumbnail img {
+            width: 100%;
         }
         </style>
         <script type="text/javascript"
@@ -31,25 +27,28 @@
     </head>
     <body>
 
-    <nav>
+    <div class="container">
+    <div class="col-md-2">
 
         <a href="/"><div id="avatar" class="pagination-centered"></div></a>
 
-        <ul class="nav nav-list">
-            <li class="nav-header">tech.no.com</li>
-            <li class="active"><a href="/"><i class="icon-list"></i> Episodes</a></li>
-            <li><a href="/podcast"><i class="icon-download-alt"></i> Podcast</a></li>
+        <ul class="nav nav-pills">
+            <li class="navbar-brand">tech.no.com</li>
+            <li><a href="/"><i class="glyphicon glyphicon-list"></i> Episodes</a></li>
+            <li><a href="/podcast"><i class="glyphicon glyphicon-download-alt"></i> Podcast</a></li>
         </ul>
-        <ul class="nav nav-list social">
-            <li><a href="http://twitter.com/mplatiniste"><i class="icon-comment"></i> Twitter</a></li>
-            <li><a href="http://mixcloud.com/michelplatiniste"><i class="icon-music"></i> Mixcloud</a></li>
-            <li><a href="mailto:michel@tech.no.com"><i class="icon-envelope"></i> Email</a></li>
+        <hr>
+        <ul class="nav nav-pills social">
+            <li><a href="http://twitter.com/mplatiniste"><i class="glyphicon glyphicon-comment"></i> Twitter</a></li>
+            <li><a href="http://mixcloud.com/michelplatiniste"><i class="glyphicon glyphicon-music"></i> Mixcloud</a></li>
+            <li><a href="mailto:michel@tech.no.com"><i class="glyphicon glyphicon-envelope"></i> Email</a></li>
         </ul>
 
-    </nav>
+    </div>
 
-      <div class="container">
-        {% block content %}{% endblock %}
+      <div class="col-md-9">
+      {% block content %}{% endblock %}
+      </div>
       </div>
 
       <script type="text/javascript">
