@@ -30,9 +30,13 @@
     <div class="container">
     <div class="col-md-2">
 
-        <a href="/"><div id="avatar" class="pagination-centered"></div></a>
 
         <ul class="nav nav-pills">
+            <li>
+            <a href="/" class="text-center">
+                <img src="{{ url_for('static', filename='avatar.jpg') }}">
+            </a>
+            </li>
             <li class="navbar-brand">tech.no.com</li>
             <li><a href="/"><i class="glyphicon glyphicon-list"></i> Episodes</a></li>
             <li><a href="/podcast"><i class="glyphicon glyphicon-download-alt"></i> Podcast</a></li>

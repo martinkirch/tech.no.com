@@ -16,14 +16,8 @@ function dispmichel(d) {
     $("#michelcasts").append(html);
 }
 
-function showpic(d) {
-  var url = d.pictures.medium;
-  $("#avatar").html("<img src='" + url + "' />");
-}
-
 function start() {
   $.getScript("http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel");
-  $.getScript("http://api.mixcloud.com/michelplatiniste/?callback=showpic");
 }
 
 function disp_episode(d) {
