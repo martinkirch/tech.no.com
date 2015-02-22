@@ -2,6 +2,8 @@ import glob
 import os.path
 import yaml
 
+from flask import url_for
+
 
 class Episode:
     def __init__(self, title, slug, description, pubDate, length, pic, tracks):
@@ -34,4 +36,7 @@ class Episode:
         this_dir = os.path.dirname(os.path.abspath(__file__))
         ep_yml = glob.glob(os.path.join(this_dir, '..', 'episodes/*.yml'))
         episodes = [Episode.from_yml(f) for f in ep_yml]
-        return episodes
+        return sorted(episodes, key=lambda x: x.pubDate, reverse=True)
+
+    def url_to(self):
+        return url_for('.view_episode', slug=self.slug)

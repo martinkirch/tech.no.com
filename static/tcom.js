@@ -1,25 +1,3 @@
-function dispmichel(d) {
-    var eps = d.data;
-    var html = "";
-    for (i in eps) {
-        var slug = eps[i].slug;
-        var url = "/episode/" + slug;
-        var name = eps[i].name;
-        html += '   <div class="col-md-4 episode-thumbnail">'
-        html += '    <a href="' + url + '">'
-        html += '      <img src="'  + eps[i].pictures.large + '" />';
-        html += '      <h3>' + name + '</h3>'
-        html += '    </a>'
-        html += '   </div>'
-
-    }
-    $("#michelcasts").append(html);
-}
-
-function start() {
-  $.getScript("http://api.mixcloud.com/michelplatiniste/cloudcasts/?callback=dispmichel");
-}
-
 function disp_episode(d) {
   var name = d.name;
 

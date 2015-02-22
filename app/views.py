@@ -5,6 +5,7 @@ from flask import Response
 from flask import url_for
 import PyRSS2Gen
 
+from episode import Episode
 from podcast import podcast_entries
 
 tcom = Blueprint('tcom', __name__)
@@ -12,7 +13,8 @@ tcom = Blueprint('tcom', __name__)
 
 @tcom.route('/')
 def home():
-    return render_template('home.html')
+    episodes = Episode.all()
+    return render_template('home.html', episodes=episodes)
 
 
 @tcom.route('/favicon.ico')

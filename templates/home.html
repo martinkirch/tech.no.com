@@ -1,4 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="michelcasts"></div>
+<div>
+{% for episode in episodes %}
+<div class="col-md-4 episode-thumbnail">
+    <a href="{{ episode.url_to() }}">
+        <img src="{{ episode.pic }}" />
+        <h3>{{ episode.title }}</h3>
+    </a>
+</div>
+{% endfor %}
+</div>
 {% endblock %}
