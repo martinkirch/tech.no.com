@@ -4,10 +4,8 @@ Get episodes from yml files.
 
 import datetime
 import PyRSS2Gen
-import os.path
-import glob
-import yaml
 from dateutil.tz import tzutc
+from episode import Episode
 
 
 # Extracted from:
@@ -20,70 +18,50 @@ class ItunesRSSItem(PyRSS2Gen.RSSItem):
             handler.endElement('media:thumbnail')
 
 
-class Episode:
-    def __init__(self, title, slug, description, pubDate, length, pic):
-        self.title = title
-        self.slug = slug
-        self.description = description
-        self.pubDate = pubDate
-        self.length = length
-        self.pic = pic
+class RSSEpisode(object):
+    def __init__(self, ep):
+        self.ep = ep
+
+    def enclosure(self):
+        url = 'http://tech.no.com/episode/{}/download'.format(self.ep.slug)
+        return PyRSS2Gen.Enclosure(url, self.ep.length, 'audio/mpeg')
+
+    def description(self):
+        description = self.ep.description
+        description += '\n\n' + self.render_tracklist()
+        return description
 
     def to_rss_item(self):
-        url = 'http://tech.no.com/episode/{}'.format(self.slug)
+        url = 'http://tech.no.com/episode/{}'.format(self.ep.slug)
         item = ItunesRSSItem(
-            title=self.title,
-            description=self.description,
+            title=self.ep.title,
+            description=self.description(),
             enclosure=self.enclosure(),
-            pubDate=self.pubDate,
+            pubDate=self.ep.pubDate,
             link=url,
             guid=PyRSS2Gen.Guid(url),
             )
-        item.image_url = self.pic
+        item.image_url = self.ep.pic
         return item
 
-    def enclosure(self):
-        url = 'http://tech.no.com/episode/{}/download'.format(self.slug)
-        return PyRSS2Gen.Enclosure(url, self.length, 'audio/mpeg')
+    def render_track(self, track):
+        return u'<li>{artist} - {track}</li>'.format(**track)
 
-    @staticmethod
-    def from_yml(yml_file):
-        with open(yml_file) as f:
-            d = yaml.load(f)
-        title = d['title']
-        description = d['desc']
-        if description is None:
-            description = ''
-        description += '\n\n' + render_tracklist(d['tracks'])
-        pubDate = d['meta']['published']
-        length = d['meta']['size']
-        pic = d['meta']['pic']
-        slug = os.path.splitext(os.path.basename(yml_file))[0]
-        e = Episode(title, slug, description, pubDate, length, pic)
-        return e
-
-
-def render_track(track):
-    return u'<li>{artist} - {track}</li>'.format(**track)
-
-
-def render_tracklist(tracks):
-    if tracks is None:
-        return ''
-    r = '<h3>Tracklist:</h3>'
-    r += '<ul>'
-    r += ''.join([render_track(track) for track in tracks])
-    r += '</ul>'
-    return r
+    def render_tracklist(self):
+        if self.ep.tracks is None:
+            return ''
+        r = '<h3>Tracklist:</h3>'
+        r += '<ul>'
+        r += ''.join([self.render_track(track) for track in self.ep.tracks])
+        r += '</ul>'
+        return r
 
 
 def podcast_entries():
-    this_dir = os.path.dirname(os.path.abspath(__file__))
-    ep_yml = glob.glob(os.path.join(this_dir, '..', 'episodes/*.yml'))
-    episodes = [Episode.from_yml(f) for f in ep_yml]
+    episodes = Episode.all()
 
     def date_of(ep):
         return ep.pubDate.date()
 
     episodes.sort(key=date_of, reverse=True)
-    return [ep.to_rss_item() for ep in episodes]
+    return [RSSEpisode(ep).to_rss_item() for ep in episodes]
