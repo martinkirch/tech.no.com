@@ -1,5 +1,7 @@
+import email.utils
 import glob
 import os.path
+import time
 import yaml
 
 from flask import url_for
@@ -38,5 +40,10 @@ class Episode:
         episodes = [Episode.from_yml(f) for f in ep_yml]
         return sorted(episodes, key=lambda x: x.pubDate, reverse=True)
 
-    def url_to(self):
+    def url(self):
         return url_for('.view_episode', slug=self.slug)
+
+    def rfc822date(self):
+        timetuple = self.pubDate.timetuple()
+        timestamp = time.mktime(timetuple)
+        return email.utils.formatdate(timestamp)

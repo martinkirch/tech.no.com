@@ -3,7 +3,7 @@
 <div>
 {% for episode in episodes %}
 <div class="col-md-4 episode-thumbnail">
-    <a href="{{ episode.url_to() }}">
+    <a href="{{ episode.url() }}">
         <img src="{{ episode.pic }}" />
         <h3>{{ episode.title }}</h3>
     </a>

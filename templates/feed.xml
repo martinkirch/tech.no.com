@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title>Michel Platiniste podcast</title>
+        <link>http://tech.no.com</link>
+        <description>The Michel Platiniste podcast</description>
+        <itunes:image href="http://tech.no.com{{ url_for('static', filename='avatar.jpg') }}"></itunes:image>
+        {% for episode in episodes %}
+        <item>
+            <title>{{ episode.title }}</title>
+            <link>http://tech.no.com{{ episode.url() }}</link>
+            <media:thumbnail url="{{ episode.pic }}"></media:thumbnail>
+            <description>
+                <![CDATA[
+                {{ episode.description }}
+                {% if episode.tracks %} 
+                <h3>Tracklist:</h3>
+                <ul>
+                    {% for track in episode.tracks %}
+                    <li>
+                        {{ track['artist'] }} - {{ track['track'] }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                ]]>
+            </description>
+            <enclosure
+                length="{{ episode.length }}"
+                type="audio/mpeg"
+                url="http://tech.no.com{{ url_for ('.download_episode', slug=episode.slug) }}">
+            </enclosure>
+            <guid isPermaLink="true">
+                http://tech.no.com{{ episode.url() }}
+            </guid>
+            <pubDate>{{ episode.rfc822date() }}</pubDate>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
