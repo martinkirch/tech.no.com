@@ -46,7 +46,7 @@ def main():
         'meta': {
             'published': pubDate.isoformat(),
             'size': size,
-             }
+            }
         }
     print yaml.dump(meta, default_flow_style=False)
 
