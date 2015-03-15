@@ -5,14 +5,11 @@ Usage:
 
 How to upload:
   - make a .yml file
-  - build the logo with scripts/make-logo -y
-  - upload to mixcloud (this script)
-  - upload logo to mixcloud
+  - run this script
+  - (for cloudcasts without a logo: entry) upload logo to mixcloud
   - upload mix to S3
-  - update podcast data on website:
-      - pub date
-      - length
-      - pic
+  - add the meta entry to the .yml file
+  - (for cloudcasts without a logo: entry) adjust the logo URL
 """
 
 import datetime
