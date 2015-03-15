@@ -51,10 +51,14 @@ def main():
     if picturefile is not None:
         picturefile.close()
     pubDate = datetime.datetime.now()
+    slug = cc.key
+    new_cc = m.user('michelplatiniste').cloudcast(slug)
+    pic = new_cc.picture().encode('ascii')
     meta = {
         'meta': {
             'published': pubDate.isoformat(),
             'size': size,
+            'pic': pic,
             }
         }
     print yaml.dump(meta, default_flow_style=False)
