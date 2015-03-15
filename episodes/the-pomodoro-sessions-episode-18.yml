@@ -1,0 +1,39 @@
+title: The Pomodoro Sessions - Episode 18
+desc: |
+      25 minutes for crushed nerves.
+      
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 18
+    palette: 3650654
+    ext: 4
+    int: 1
+    txt: 0
+tags:
+  - Pomodoro
+  - Michel
+  - Nervous
+  - Electronica
+tracks:
+  - start: 0
+    artist: Jeanne
+    track: Lonely
+  - start: 5:00
+    artist: Crystal Castles
+    track: Violent Youth
+  - start: 8:55
+    artist: Rone
+    track: Bachi-Bouzouk
+  - start: 13:30
+    artist: Hypnolove
+    track: Come to My Empire (Bufi & La Royale Remix)
+  - start: 18:14
+    artist: Tim Paris
+    track: Rain feat. Coco Solid (Pilooski Remix)
+meta:
+    pic: http://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/5cc6d187-d7b8-4e7c-b40a-71e4c8fd10a2.png
+    published: '2015-03-15T18:15:21'
+    size: 55630505
