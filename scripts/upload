@@ -19,6 +19,7 @@ import datetime
 import docopt
 import mixcloud
 import os
+import subprocess
 import sys
 import yaml
 
@@ -28,19 +29,27 @@ def main():
     with open('token.txt') as tkt:
         acces_token = tkt.read().strip()
     m = mixcloud.Mixcloud(access_token=acces_token)
-    with open(params['<yml_file>']) as yml:
+    yml_file = params['<yml_file>']
+    with open(yml_file) as yml:
         y = yaml.load(yml)
         if 'meta' in y:
             print "YML file has a meta entry, aborting."
             sys.exit(1)
+        has_logo = 'logo' in y
         yml.seek(0)
         cc = mixcloud.Cloudcast.from_yml(yml, None)
     mp3_name = params['<mp3_file>']
     size = os.stat(mp3_name).st_size
+    picturefile = None
+    if has_logo:
+        subprocess.call(['./scripts/make-logo', '-y', yml_file])
+        picturefile = open('temp.png')
     with open(mp3_name) as mp3:
-        r = m.upload(cc, mp3)
+        r = m.upload(cc, mp3, picturefile)
         print r.status_code
         print r.text
+    if picturefile is not None:
+        picturefile.close()
     pubDate = datetime.datetime.now()
     meta = {
         'meta': {
