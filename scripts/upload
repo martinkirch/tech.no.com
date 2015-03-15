@@ -7,7 +7,6 @@ How to upload:
   - make a .yml file
   - run this script
   - (for cloudcasts without a logo: entry) upload logo to mixcloud
-  - upload mix to S3
   - add the meta entry to the .yml file
   - (for cloudcasts without a logo: entry) adjust the logo URL
 """
@@ -47,6 +46,8 @@ def main():
         print r.text
     if picturefile is not None:
         picturefile.close()
+    s3_destination = 's3://files.tech.no.com/podcasts/'
+    subprocess.call(['s3cmd', '-F', '-P', 'put', mp3_name, s3_destination])
     pubDate = datetime.datetime.now()
     slug = cc.key
     new_cc = m.user('michelplatiniste').cloudcast(slug)
