@@ -19,6 +19,7 @@ import datetime
 import docopt
 import mixcloud
 import os
+import sys
 import yaml
 
 
@@ -28,6 +29,11 @@ def main():
         acces_token = tkt.read().strip()
     m = mixcloud.Mixcloud(access_token=acces_token)
     with open(params['<yml_file>']) as yml:
+        y = yaml.load(yml)
+        if 'meta' in y:
+            print "YML file has a meta entry, aborting."
+            sys.exit(1)
+        yml.seek(0)
         cc = mixcloud.Cloudcast.from_yml(yml, None)
     mp3_name = params['<mp3_file>']
     size = os.stat(mp3_name).st_size
