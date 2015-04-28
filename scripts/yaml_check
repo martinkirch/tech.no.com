@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import datetime
 import glob
 import yaml
 
@@ -19,6 +20,7 @@ def yaml_check(data):
         meta = data['meta']
         for mk in ['published', 'pic', 'size']:
             assert(mk in meta)
+        assert(type(meta['published']) == datetime.datetime)
 
 
 def main():
