@@ -1,0 +1,48 @@
+title: The Pomodoro Sessions - Episode 19
+desc: |
+      Cruising at 122PBM.
+      
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 19
+    palette: 3742542
+    ext: 4
+    int: 3
+    txt: 0
+tags:
+  - Pomodoro
+  - Michel
+  - Tech-house
+  - Deep house
+tracks:
+  - start: 0
+    artist: Digitaria
+    track: Favourite Addiction
+  - start: 3:09
+    artist: Jason Pepperell
+    track: Slip Away
+  - start: 6:58
+    artist: Clara Moto
+    track: Smeel
+  - start: 9:03
+    artist: STUFF
+    track: Sexual Healing
+  - start: 12:12
+    artist: Igor Vicente
+    track: The Horse
+  - start: 16:23
+    artist: Flight Facilities
+    track: Stand Still feat. Micky Green (Mario Basanov Remix)
+  - start: 19:31
+    artist: Martin Waslewski
+    track: Igelit Shoes
+  - start: 22:40
+    artist: Superlover
+    track: Love Me
+meta:
+    pic: http://lol.com/
+    published: 2015-04-28T00:00:00
+    size: 0
