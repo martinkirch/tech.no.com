@@ -1,8 +1,10 @@
 title: M002
-desc: A long time ago, an ugly site was hosted on tech.no.com.
-      But the mixes there were awesome.
-
-
+desc: A long time ago (2011), an ugly site was hosted on
+      tech.no.com.
+      But the mixes there were awesome. Here is one.
+tags:
+  - Tech house
+  - Backlog
 tracks:
   - start: 0
     artist: Lauhaus
