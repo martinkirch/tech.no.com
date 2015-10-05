@@ -7,11 +7,11 @@ desc: |
       Load a Pomodoro Sessions episode, click play, work. When it's over, take a
       break!
 logo:
-    num: 20
+    num: 21
     palette: 937624
-    ext: 3
-    int: 2
-    txt: 0
+    ext: 2
+    int: 1
+    txt: 3
 tags:
   - Pomodoro
   - Michel
