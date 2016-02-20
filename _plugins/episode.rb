@@ -10,7 +10,7 @@ module Episode
         'date' => data['meta']['published'],
         'description' => data['desc'],
         'tracks' => data['tracks'],
-        'length' => data['meta']['size'],
+        'length' => site.data['sizes'][slug],
         'slug' => slug,
       }
     end
