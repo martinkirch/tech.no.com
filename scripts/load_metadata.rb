@@ -11,10 +11,7 @@ def get_pics
     j = JSON.parse(r)
     j['data'].each do |ep|
       path = thumbnails_dir + ep['slug'] + '.yml'
-      d = { 'url' => ep['pictures']['large']}
-      File.open path, 'w' do |f|
-        f.write d.to_yaml
-      end
+      File.write path, ep['pictures']['large']
     end
 end
 
