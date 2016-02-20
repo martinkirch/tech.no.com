@@ -2,8 +2,19 @@ sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.2.3
+- 2.2.3
 script:
-  - bundle exec jekyll build
+- bundle exec jekyll build
 branches:
-    only: jekyll
+  only: jekyll
+deploy:
+  provider: s3
+  access_key_id: AKIAJIII2LCT7AOV5RMA
+  secret_access_key:
+    secure: D1wF1OdK+2nt7A6FMwd4ZWvWCbi9YegT5pSo9OtxrrpHrK24JAf8jDjbf6wjcVxUUGQCUz5lzqc5ZQ7DBfDo07biLKmW52Qdu6bnFzZjH1hwN+hJY8E4NMUq1NO5gO6rNDbpy2W6EhbIUjYgYb8jicJ6BJfXU/Qya1oIlmyE9LU=
+  bucket: tech.no.com
+  local-dir: _site
+  acl: public_read
+  on:
+    repo: emillon/tech.no.com
+    branch: jekyll
