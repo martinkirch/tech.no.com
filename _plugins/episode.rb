@@ -4,7 +4,7 @@ module Episode
 
     def episode(site, hash)
       slug, data = hash
-      { 'url' => '/episode/' + slug,
+      { 'url' => '/episode/' + slug + '.html',
         'title' => data['title'],
         'pic' => data['meta']['pic'],
         'date' => data['meta']['published'],
