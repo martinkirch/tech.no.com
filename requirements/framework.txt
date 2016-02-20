@@ -1,5 +1,2 @@
-Flask==0.10.1
-Flask-XStatic==0.0.1
 python-dateutil==2.4.2
 pyyaml==3.11
-XStatic-Bootstrap==3.1.1.2
