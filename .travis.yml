@@ -14,6 +14,7 @@ deploy:
   secret_access_key:
     secure: D1wF1OdK+2nt7A6FMwd4ZWvWCbi9YegT5pSo9OtxrrpHrK24JAf8jDjbf6wjcVxUUGQCUz5lzqc5ZQ7DBfDo07biLKmW52Qdu6bnFzZjH1hwN+hJY8E4NMUq1NO5gO6rNDbpy2W6EhbIUjYgYb8jicJ6BJfXU/Qya1oIlmyE9LU=
   bucket: tech.no.com
+  region: eu-west-1
   local-dir: _site
   acl: public_read
   on:
