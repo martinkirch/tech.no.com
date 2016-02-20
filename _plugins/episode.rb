@@ -6,7 +6,7 @@ module Episode
       slug, data = hash
       { 'url' => '/episode/' + slug + '.html',
         'title' => data['title'],
-        'pic' => data['meta']['pic'],
+        'pic' => site.data['thumbnails'][slug],
         'date' => data['meta']['published'],
         'description' => data['desc'],
         'tracks' => data['tracks'],

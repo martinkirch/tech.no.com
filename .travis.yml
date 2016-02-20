@@ -4,6 +4,7 @@ cache: bundler
 rvm:
 - 2.2.3
 script:
+- bundle exec ruby scripts/load_metadata.rb
 - bundle exec jekyll build
 branches:
   only: jekyll
