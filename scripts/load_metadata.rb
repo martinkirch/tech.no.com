@@ -1,5 +1,4 @@
 require 'rest-client'
-require 'yaml'
 
 def get_pics
     thumbnails_dir = '_data/thumbnails/' 
