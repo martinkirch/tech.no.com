@@ -12,7 +12,6 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tech.no.com" # the base hostname & protocol for your site
 exclude: 
     - vendor
-permalinks: pretty
 
 # Build settings
 markdown: kramdown
