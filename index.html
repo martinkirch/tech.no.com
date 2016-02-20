@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div>
+{% for episode in page.episodes %}
+<div class="col-md-4 episode-thumbnail">
+    <a href="{{ episode.url }}">
+        <img src="{{ episode.meta.pic }}" />
+        <h3>{{ episode.title }}</h3>
+    </a>
+</div>
+{% endfor %}
+</div>
