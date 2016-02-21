@@ -31,7 +31,7 @@ layout: null
             <enclosure
                 length="{{ episode.length }}"
                 type="audio/mpeg"
-                url="http://tech.no.com/episode/{{ episode.slug }}/download">
+                url="https://s3-eu-west-1.amazonaws.com/files.tech.no.com/podcasts/{{ episode.slug }}.mp3">
             </enclosure>
             <guid isPermaLink="true">
                 http://tech.no.com{{ episode.url() }}
