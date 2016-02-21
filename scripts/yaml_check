@@ -7,7 +7,7 @@ import yaml
 
 def yaml_check(data):
     for key in ['title', 'desc', 'tags', 'tracks']:
-        assert(key in data)
+        assert key in data, key
 
     tracks = data['tracks'] or []
     for t in tracks:

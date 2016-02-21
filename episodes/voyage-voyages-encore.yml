@@ -12,7 +12,7 @@ tracks:
   - start: 0
     artist: Michel Polnareff
     track: Voyages
-  - start: 0:43
+  - start: 43
     artist: Andy Stott
     track: Time Away
   - start: 6:17
@@ -60,3 +60,7 @@ tracks:
   - start: 59:26
     artist: Michel Polnareff
     track: Voyages
+meta:
+  pic: https://images-mix.netdna-ssl.com/w/300/h/300/q/85/upload/images/extaudio/d60fe0b8-b401-4df5-83f2-27766d5f0dc0.jpg
+  published: 2015-09-17T20:47:51
+  size: 144002768

@@ -26,6 +26,8 @@ class Episode:
         if description is None:
             description = ''
         tracks = d['tracks']
+        if 'meta' not in d:
+            return
         pubDate = d['meta']['published']
         length = d['meta']['size']
         pic = d['meta']['pic']
@@ -37,7 +39,11 @@ class Episode:
     def all():
         this_dir = os.path.dirname(os.path.abspath(__file__))
         ep_yml = glob.glob(os.path.join(this_dir, '..', 'episodes/*.yml'))
-        episodes = [Episode.from_yml(f) for f in ep_yml]
+        episodes = []
+        for f in ep_yml:
+            episode = Episode.from_yml(f)
+            if episode is not None:
+                episodes.append(episode)
         return sorted(episodes, key=lambda x: x.pubDate, reverse=True)
 
     def url(self):
