@@ -1,0 +1,37 @@
+title: The Pomodoro Sessions - Episode 24
+desc: |
+      Back to tech-house !
+
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 24
+    palette: 723615
+    ext: 0
+    int: 4
+    txt: 2
+tags:
+  - Pomodoro
+  - Tech-house
+  - Michel
+tracks:
+  - start: 0
+    artist: N'to
+    track: Meanwhile in Rio
+  - start: 4:00
+    artist: Cubicolor
+    track: Cage Of Love
+  - start: 10:25
+    artist: Kevin Yost
+    track: More
+  - start: 15:20
+    artist: Joachim Pastor
+    track: Reykjavik
+  - start: 21:35
+    artist: William Kouam Djoko
+    track: We Are Your Brothers & Sisters
+  - start: 22:00
+    artist: Kollektiv Turmstrasse
+    track: Sorry I Am Late
