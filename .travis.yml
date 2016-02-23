@@ -3,6 +3,9 @@ language: ruby
 cache: bundler
 rvm:
 - 2.2.3
+before_install:
+- pip install --user docopt==0.6.2
+- pip install --user mixcloud==0.4.0
 script:
 - bundle exec ruby scripts/load_metadata.rb
 - bundle exec jekyll build
