@@ -4,11 +4,17 @@ module Episode
 
     def episode(site, hash)
       slug, data = hash
+      meta = data['meta']
+      if meta.nil?
+        date = data['date']
+      else
+        date = meta['published']
+      end
       { 'url' => '/episode/' + slug + '.html',
         'guid' => '/episode/' + slug,
         'title' => data['title'],
         'pic' => site.data['thumbnails'][slug],
-        'date' => data['meta']['published'],
+        'date' => date,
         'description' => data['desc'],
         'tracks' => data['tracks'],
         'length' => site.data['sizes'][slug],
