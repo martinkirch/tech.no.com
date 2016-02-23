@@ -24,3 +24,5 @@ deploy:
   on:
     repo: emillon/tech.no.com
     branch: jekyll
+env:
+  secure: Jz1m39Lx5gSCS0AAVKK/6tPxbodvenea9SYp7QSChHuVMy1fZbageUwBIIs0hgJnXeF9foCMtTpTefX5qvX65asuT04Mpynp47XgKY37wvcXnPJq7jeIcBFCbuOaIkR0vvm2YOFKSqQdFkLFmBC0wWj/N2WdBBYJmXb29jujqec=
