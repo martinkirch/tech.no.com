@@ -59,6 +59,7 @@ def upload(slug)
   url = episode_url slug
   begin
     mp3file << open(url).read
+    system './scripts/upload', "_data/episodes/#{slug}.yml", mp3file.path
   ensure
     mp3file.close
     mp3file.unlink
