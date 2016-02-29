@@ -1,0 +1,22 @@
+title: Pas-modoro classique
+desc: Un pomodoro en forme de trait d'union entre la Renaissance et la
+      musique classique contemporaine.
+tags:
+  - Classical
+  - Renaissance
+  - Choral
+tracks:
+  - start: 0
+    artist: Gualtiero Dazzi
+    track: La Rosa De Ariadna
+  - start: 2:26
+    artist: Giovanni Gabrieli
+    track: Exaudi me Domine
+  - start: 8:11
+    artist: Gregorio Allegri
+    track: Miserere
+  - start: 15:36
+    artist: Arvo Pärt
+    track: Salve Regina
+meta:
+    published: 2014-04-24T14:05:56+00:00

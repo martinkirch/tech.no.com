@@ -1,0 +1,42 @@
+title: The Pomodoro Sessions - Episode 22
+desc: |
+      Special Orties.
+
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 22
+    palette: 3905201
+    ext: 2
+    int: 4
+    txt: 0
+tags:
+  - Pomodoro
+  - Breaks
+  - Hiphop
+tracks:
+  - start: 0
+    artist: Orties
+    track: J'ai le fun
+  - start: 3:45
+    artist: Disharmony
+    track: Empty
+  - start: 7:17
+    artist: Orties
+    track: Ghetto Goth
+  - start: 10:08
+    artist: Phazed
+    track: Silence
+  - start: 12:55
+    artist: Plastic Robots, Waveback Luke
+    track: Shadows
+  - start: 17:17
+    artist: Orties
+    track: La Boom (NEUS remix)
+  - start: 20:48
+    artist: M.O.O.N
+    track: Dust
+meta:
+    published: 2015-10-26T22:11:26

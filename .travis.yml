@@ -1,11 +1,28 @@
-language: python
-install:
-  - "pip install -r requirements.txt --use-mirrors"
-  - "pip install coveralls --use-mirrors"
-python:
-  - "2.7"
+sudo: false
+language: ruby
+cache: bundler
+rvm:
+- 2.2.3
+before_install:
+- pip install --user docopt==0.6.2
+- pip install --user mixcloud==0.4.0
 script:
-  - ./scripts/yaml_check
-  - "nosetests --with-coverage --cover-package=app"
-after_success:
-  coveralls
+- bundle exec ruby scripts/load_metadata.rb
+- bundle exec jekyll build
+branches:
+  only: jekyll
+deploy:
+  provider: s3
+  skip_cleanup: true
+  access_key_id: AKIAJIII2LCT7AOV5RMA
+  secret_access_key:
+    secure: D1wF1OdK+2nt7A6FMwd4ZWvWCbi9YegT5pSo9OtxrrpHrK24JAf8jDjbf6wjcVxUUGQCUz5lzqc5ZQ7DBfDo07biLKmW52Qdu6bnFzZjH1hwN+hJY8E4NMUq1NO5gO6rNDbpy2W6EhbIUjYgYb8jicJ6BJfXU/Qya1oIlmyE9LU=
+  bucket: tech.no.com
+  region: eu-west-1
+  local-dir: _site
+  acl: public_read
+  on:
+    repo: emillon/tech.no.com
+    branch: jekyll
+env:
+  secure: Jz1m39Lx5gSCS0AAVKK/6tPxbodvenea9SYp7QSChHuVMy1fZbageUwBIIs0hgJnXeF9foCMtTpTefX5qvX65asuT04Mpynp47XgKY37wvcXnPJq7jeIcBFCbuOaIkR0vvm2YOFKSqQdFkLFmBC0wWj/N2WdBBYJmXb29jujqec=
