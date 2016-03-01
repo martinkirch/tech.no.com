@@ -9,8 +9,6 @@ before_install:
 script:
 - bundle exec ruby scripts/load_metadata.rb
 - bundle exec jekyll build
-branches:
-  only: jekyll
 deploy:
   provider: s3
   skip_cleanup: true
