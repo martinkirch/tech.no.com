@@ -1,5 +1,4 @@
 *.pyc
-.coverage
 .bundle
 vendor/bundle
 _site
