@@ -1,0 +1,37 @@
+title: The Pomodoro Sessions - Episode 25
+desc: |
+      TECHNO.
+
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 25
+    palette: 4143510
+    ext: 0
+    int: 1
+    txt: 3
+tags:
+  - Pomodoro
+  - Techno
+  - Michel
+tracks:
+  - start: 0
+    artist: Markus Gibb
+    track: Darvaza
+  - start: 3:15
+    artist: Patrick Arbez
+    track: Der rote Rabauke
+  - start: 7:30
+    artist: Sam Paganini
+    track: White
+  - start: 11:28
+    artist: Orient X Press
+    track: XP22
+  - start: 16:20
+    artist: Len Faki
+    track: BX 3
+  - start: 21:11
+    artist: Age Of Love
+    track: Age Of Love (Affani Treatment Mix)
