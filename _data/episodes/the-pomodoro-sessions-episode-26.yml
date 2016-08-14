@@ -1,0 +1,35 @@
+title: The Pomodoro Sessions - Episode 26
+desc: |
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 26
+    palette: 4303878
+    ext: 2
+    int: 3
+    txt: 1
+tags:
+  - Pomodoro
+  - Techno
+  - Michel
+tracks:
+  - start: 0:00
+    artist: Claude VonStroke
+    track: Dood
+  - start: 4:31
+    artist: Manfredas
+    track: Glasswalk
+  - start: 8:58
+    artist: Acid Washed
+    track: Heartbeat Maker
+  - start: 12:15
+    artist: Kaiserdisco
+    track: Jet Stream
+  - start: 16:30
+    artist: Volkoder
+    track: Inflamavel
+  - start: 21:00
+    artist: Definition, ARTBAT
+    track: Saltation
