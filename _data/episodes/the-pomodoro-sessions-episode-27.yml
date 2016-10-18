@@ -1,0 +1,36 @@
+title: The Pomodoro Sessions - Episode 27
+desc: |
+      The Pomodoro technique is a time management strategy in which you split
+      tasks by 25 min intervals. As long as a mix from this series.
+      Load a Pomodoro Sessions episode, click play, work. When it's over, take a
+      break!
+logo:
+    num: 27
+    palette: 4340550
+    ext: 1
+    int: 4
+    txt: 2
+tags:
+  - Pomodoro
+  - Progressive House
+  - Michel
+  - Deep House
+tracks:
+  - start: 0:00
+    artist: Trentemøller
+    track: Nightwalker
+  - start: 4:00
+    artist: Jaap Ligthart
+    track: The Haunt
+  - start: 9:20
+    artist: Definition
+    track: Without Any Doubt
+  - start: 13:30
+    artist: Koen Schepens
+    track: A Wave Of Probabilities
+  - start: 18:40
+    artist: FNR
+    track: Distorted Reality
+  - start: 22:22
+    artist: Spacesheep
+    track: Arsenic
